@@ -5,30 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Adding API in progress">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/search_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/search_icon.png" afterDir="false" />
     </list>
-    <list id="1a60b472-0a45-49d6-b51d-ed1f786b419f" name="Changes by marcin" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Anime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
-    </list>
+    <list id="1a60b472-0a45-49d6-b51d-ed1f786b419f" name="Changes by marcin" comment="Adding API in progress" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,8 +77,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -121,9 +107,10 @@
     "last_opened_file_path": "E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -236,9 +223,9 @@
       <list>
         <item itemvalue="Gradle.EdP_Anime_List [spotlessApply]" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Gradle.EdP_Anime_List [compileJava]" />
         <item itemvalue="Gradle.EdP_Anime_List [wrapper]" />
-        <item itemvalue="Gradle.EdP_Anime_List [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -250,8 +237,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684096469666</updated>
-      <workItem from="1684096474258" duration="8474000" />
+      <workItem from="1684096474258" duration="8639000" />
+      <workItem from="1684173534421" duration="17185000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding API in progress">
+      <created>1684106084554</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684106084554</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding API in progress">
+      <created>1684106190880</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684106190880</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,5 +274,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding API in progress" />
     <option name="LAST_COMMIT_MESSAGE" value="Adding API in progress" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
