@@ -11,11 +11,11 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class Anime {
     private Integer id;
-    private String title;
     private String imageUrl;
-    private double mean;
+    private String title;
     private Status status;
+    private String numEpisodes;
+    private String mean;
     //    private String genre;
     //    private String studios;
-    private int numEpisodes;
 }

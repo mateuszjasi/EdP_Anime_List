@@ -2,9 +2,11 @@ package org.example.service;
 
 import com.google.gson.*;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,17 +25,16 @@ public class AnimeService {
 
     @SneakyThrows
     public HttpResponse<String> getResponse(String url) {
-
         HttpClient httpClient = HttpClient.newHttpClient();
-
         HttpRequest request =
                 HttpRequest.newBuilder().header(KEY, VALUE).uri(new URI(url)).build();
-
         return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
+    @SneakyThrows
     public List<Integer> getAnimeIds(String title, int offset) {
-        String response = getResponse(URL + "?offset=" + offset + "&q=" + title).body();
+        String encodedTitle = URLEncoder.encode(title, StandardCharsets.UTF_8);
+        String response = getResponse(URL + "?offset=" + offset + "&q=" + encodedTitle).body();
 
         JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
         JsonArray jsonArray = jsonObject.get("data").getAsJsonArray();
@@ -49,7 +50,8 @@ public class AnimeService {
                 .collect(Collectors.toList());
     }
 
-    public List<Anime> getAnimeFromId(List<Integer> list) {
+    public List<Anime> getAnimeFromTitle(String title, int offset) {
+        List<Integer> list = getAnimeIds(title, offset);
         List<Anime> animeList = new ArrayList<>();
 
         for (Integer id : list) {
@@ -57,6 +59,9 @@ public class AnimeService {
                             + "?fields=id,title,main_picture,mean,status,media_type,genres,studios,num_episodes")
                     .body();
             JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
+
+            JsonElement meanElement = jsonObject.get("mean");
+            String mean = meanElement != null ? meanElement.getAsString() : "N/A";
 
             Anime anime = Anime.builder()
                     .id(id)
@@ -66,9 +71,9 @@ public class AnimeService {
                             .getAsJsonObject()
                             .get("large")
                             .getAsString())
-                    .mean(jsonObject.get("mean").getAsDouble())
+                    .mean(mean)
                     .status(Status.valueOf(jsonObject.get("status").getAsString()))
-                    .numEpisodes(jsonObject.get("num_episodes").getAsInt())
+                    .numEpisodes(jsonObject.get("num_episodes").getAsInt() != 0 ? jsonObject.get("num_episodes").getAsString() : "?")
                     .build();
 
             animeList.add(anime);
