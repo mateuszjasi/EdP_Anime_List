@@ -18,14 +18,13 @@ import org.example.model.Status;
 
 @RequiredArgsConstructor
 public class AnimeService {
-
-    private final String KEY = "X-MAL-CLIENT-ID";
-    private final String VALUE = "dc7b2de23341fdd30dbea0949bf6c5e1";
     private final String URL = "https://api.myanimelist.net/v2/anime";
 
     @SneakyThrows
     public HttpResponse<String> getResponse(String url) {
         HttpClient httpClient = HttpClient.newHttpClient();
+        String VALUE = "dc7b2de23341fdd30dbea0949bf6c5e1";
+        String KEY = "X-MAL-CLIENT-ID";
         HttpRequest request =
                 HttpRequest.newBuilder().header(KEY, VALUE).uri(new URI(url)).build();
         return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
@@ -34,7 +33,8 @@ public class AnimeService {
     @SneakyThrows
     public List<Integer> getAnimeIds(String title, int offset) {
         String encodedTitle = URLEncoder.encode(title, StandardCharsets.UTF_8);
-        String response = getResponse(URL + "?offset=" + offset + "&q=" + encodedTitle).body();
+        String response =
+                getResponse(URL + "?offset=" + offset + "&q=" + encodedTitle).body();
 
         JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
         JsonArray jsonArray = jsonObject.get("data").getAsJsonArray();
@@ -73,7 +73,10 @@ public class AnimeService {
                             .getAsString())
                     .mean(mean)
                     .status(Status.valueOf(jsonObject.get("status").getAsString()))
-                    .numEpisodes(jsonObject.get("num_episodes").getAsInt() != 0 ? jsonObject.get("num_episodes").getAsString() : "?")
+                    .numEpisodes(
+                            jsonObject.get("num_episodes").getAsInt() != 0
+                                    ? jsonObject.get("num_episodes").getAsString()
+                                    : "?")
                     .build();
 
             animeList.add(anime);
