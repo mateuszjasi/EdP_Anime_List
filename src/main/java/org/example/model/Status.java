@@ -1,9 +1,9 @@
 package org.example.model;
 
 public enum Status {
-    finished_airing("finished"),
-    currently_airing("airing"),
-    not_yet_aired("upcoming");
+    finished_airing("Finished"),
+    currently_airing("Airing"),
+    not_yet_aired("Upcoming");
 
     private final String string;
 

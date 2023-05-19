@@ -1,10 +1,10 @@
-package org.example;
+package org.example.utility;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
-class ImageRenderer extends DefaultTableCellRenderer {
+public class ImageRenderer extends DefaultTableCellRenderer {
     JLabel label = new JLabel();
 
     @Override

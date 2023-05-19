@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TooltipTableCellRenderer.java" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added paging buttons, added tooltip to title column, changed colors, minor code cleanup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowResolutions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowTableColumns.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Colors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeListWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ImageRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/ImageRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TooltipTableCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/TooltipTableCellRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/arrow_left.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/arrow_left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/arrow_right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/arrow_right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/search_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/search_icon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +134,11 @@
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example\graphic" />
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -130,7 +154,7 @@
       <module name="EdP_Anime_List.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.constants.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -201,9 +225,31 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="EdP_Anime_List [spotlessCheck]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="spotlessCheck" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.EdP_Anime_List [spotlessApply]" />
+        <item itemvalue="Gradle.EdP_Anime_List [spotlessCheck]" />
         <item itemvalue="Application.JTableExamples" />
         <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Gradle.EdP_Anime_List [compileJava]" />
@@ -224,7 +270,9 @@
       <workItem from="1684252945528" duration="14462000" />
       <workItem from="1684310033491" duration="377000" />
       <workItem from="1684337319483" duration="1846000" />
-      <workItem from="1684343374426" duration="8094000" />
+      <workItem from="1684343374426" duration="8550000" />
+      <workItem from="1684409872220" duration="6242000" />
+      <workItem from="1684511077703" duration="16295000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -254,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684267401120</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added paging buttons, added tooltip to title column, changed colors, minor code cleanup">
+      <created>1684355231762</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684355231762</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +330,8 @@
     <MESSAGE value="Adding API in progress" />
     <MESSAGE value="Remaking GUI" />
     <MESSAGE value="GUI finished (for now), Table shows data from API (need to make it look better), fixes in API responses." />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI finished (for now), Table shows data from API (need to make it look better), fixes in API responses." />
+    <MESSAGE value="Added paging buttons, added tooltip to title column, changed colors, minor code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added paging buttons, added tooltip to title column, changed colors, minor code cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
