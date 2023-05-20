@@ -20,11 +20,10 @@ import org.example.panels.UserPanel.UserPanelView;
 public class SearchPanelView extends JPanel implements ActionListener, FocusListener {
     private final UserPanelView parent;
     private final SearchPanelController controller;
-    private UserPanelController parentController;
     private final JTextField searchAnimeTextField;
     private final JButton searchButton;
 
-    public SearchPanelView(UserPanelView parent) {
+    public SearchPanelView(UserPanelView parent, UserPanelController parentController) {
         this.parent = parent;
         controller = new SearchPanelController(this, parentController);
         searchAnimeTextField = new JTextField(idleSearchFieldText);
@@ -75,10 +74,6 @@ public class SearchPanelView extends JPanel implements ActionListener, FocusList
     @Override
     public void focusLost(FocusEvent e) {
         controller.fillTextField(e, searchAnimeTextField);
-    }
-
-    public void setParentController(UserPanelController parentController) {
-        this.parentController = parentController;
     }
 
     public JTextField getSearchAnimeTextField() {

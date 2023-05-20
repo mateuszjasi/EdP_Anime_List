@@ -56,7 +56,7 @@ public class AnimeService {
 
         for (Integer id : list) {
             String response = getResponse(URL + "/" + id
-                            + "?fields=id,title,main_picture,mean,status,media_type,genres,studios,num_episodes")
+                            + "?fields=id,title,main_picture,mean,status,num_episodes")
                     .body();
             JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
 

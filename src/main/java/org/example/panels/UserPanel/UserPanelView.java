@@ -9,14 +9,14 @@ import org.example.panels.SearchPanel.SearchPanelView;
 
 public class UserPanelView extends JPanel {
     private final BodyPanelView parent;
+    private final SearchPanelView searchPanel;
+    private final OptionsPanelView optionsPanel;
 
     public UserPanelView(BodyPanelView parent, ResultPanelView resultPanel) {
         this.parent = parent;
-        SearchPanelView searchPanel = new SearchPanelView(this);
-        OptionsPanelView optionsPanel = new OptionsPanelView(this);
-        UserPanelController controller = new UserPanelController(searchPanel, resultPanel);
-        searchPanel.setParentController(controller);
-        optionsPanel.setParentController(controller);
+        UserPanelController controller = new UserPanelController(this, resultPanel);
+        searchPanel = new SearchPanelView(this, controller);
+        optionsPanel = new OptionsPanelView(this, controller);
 
         initPanel();
 
@@ -27,5 +27,13 @@ public class UserPanelView extends JPanel {
     private void initPanel() {
         setPreferredSize(new Dimension(parent.getWidth(), 150));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    }
+
+    public SearchPanelView getSearchPanel() {
+        return searchPanel;
+    }
+
+    public OptionsPanelView getOptionsPanel() {
+        return optionsPanel;
     }
 }

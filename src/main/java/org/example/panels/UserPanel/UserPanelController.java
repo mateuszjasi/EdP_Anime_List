@@ -16,16 +16,15 @@ import org.example.panels.SearchPanel.SearchPanelView;
 import org.example.service.AnimeService;
 
 public class UserPanelController {
-    private final SearchPanelView searchPanel;
+    private final UserPanelView view;
     private final AnimeService animeService;
     private final ResultPanelView resultPanel;
     private int offset;
 
-    public UserPanelController(
-            SearchPanelView searchPanel, ResultPanelView resultPanel) {
+    public UserPanelController(UserPanelView view, ResultPanelView resultPanel) {
         animeService = new AnimeService();
         offset = 0;
-        this.searchPanel = searchPanel;
+        this.view = view;
         this.resultPanel = resultPanel;
     }
 
@@ -38,8 +37,9 @@ public class UserPanelController {
     }
 
     @SneakyThrows
-    public int searchAnime() {
-        String animeTitle = searchPanel.getSearchAnimeTextField().toString();
+    public void searchAnime() {
+        SearchPanelView searchPanel = view.getSearchPanel();
+        String animeTitle = searchPanel.getSearchAnimeTextField().getText();
         DefaultTableModel tableModel = resultPanel.getTableModel();
         JTable resultTable = resultPanel.getResultTable();
         tableModel.setRowCount(0);
@@ -59,6 +59,6 @@ public class UserPanelController {
                     image.getImage().getScaledInstance(animeImageWidth, animeImageHeight, Image.SCALE_DEFAULT);
             resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
         }
-        return animeList.size();
+        view.getOptionsPanel().getNextPageButton().setEnabled(animeList.size() >= 10);
     }
 }

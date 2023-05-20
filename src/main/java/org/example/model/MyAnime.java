@@ -9,11 +9,15 @@ import lombok.RequiredArgsConstructor;
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Anime {
+public class MyAnime {
     private Integer id;
     private String imageUrl;
     private String title;
-    private Status status;
-    private String numEpisodes;
-    private String mean;
+    private Status state;
+    private Integer score;
+    private Integer progress;
+    private Integer progressMax;
+    private String note;
+    private String added;
+    private String finished;
 }

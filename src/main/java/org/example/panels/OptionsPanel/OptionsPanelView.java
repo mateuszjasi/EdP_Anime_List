@@ -18,10 +18,9 @@ import org.example.panels.UserPanel.UserPanelView;
 public class OptionsPanelView extends JPanel implements ActionListener, ChangeListener {
     private final UserPanelView parent;
     private final OptionsPanelController controller;
-    private UserPanelController parentController;
     private final JButton nextPageButton, previousPageButton, addToWatchingButton, addToPlanToWatchButton, myListButton;
 
-    public OptionsPanelView(UserPanelView parent) {
+    public OptionsPanelView(UserPanelView parent, UserPanelController parentController) {
         this.parent = parent;
         controller = new OptionsPanelController(this, parentController);
         nextPageButton = new JButton();
@@ -71,10 +70,6 @@ public class OptionsPanelView extends JPanel implements ActionListener, ChangeLi
     @Override
     public void stateChanged(ChangeEvent e) {
         controller.setPagingButtonColor(e);
-    }
-
-    public void setParentController(UserPanelController parentController) {
-        this.parentController = parentController;
     }
 
     public JButton getNextPageButton() {

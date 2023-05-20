@@ -1,9 +1,11 @@
 package org.example;
 
-import org.example.AnimeSearchFrame.AnimeSearchFrame;
+import org.example.AnimeSearchFrame.AnimeSearchFrameView;
+import org.example.service.MySqlConnection;
 
 public class Main {
     public static void main(String[] args) {
-        new AnimeSearchFrame();
+        //new AnimeSearchFrameView();
+        new MySqlConnection();
     }
 }

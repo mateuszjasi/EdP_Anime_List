@@ -30,7 +30,7 @@ public class OptionsPanelController {
                 parentController.setOffset(parentController.getOffset() - 10);
             }
             previousPageButton.setEnabled(parentController.getOffset() > 0);
-            nextPageButton.setEnabled(parentController.searchAnime() >= 10);
+            parentController.searchAnime();
         }
         if (e.getSource() == addToWatchingButton) {
             addToWatchingButton.setEnabled(false);

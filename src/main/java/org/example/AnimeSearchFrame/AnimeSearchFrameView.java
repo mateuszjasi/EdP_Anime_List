@@ -9,10 +9,10 @@ import javax.swing.*;
 import org.example.panels.BodyPanel.BodyPanelView;
 import org.example.panels.TitlePanel.TitlePanelView;
 
-public class AnimeSearchFrame extends JFrame {
+public class AnimeSearchFrameView extends JFrame {
     private final JPanel marginPanel1 = new JPanel(), marginPanel2 = new JPanel(), marginPanel3 = new JPanel();
 
-    public AnimeSearchFrame() {
+    public AnimeSearchFrameView() {
         initFrame();
         initMarginPanels();
 
