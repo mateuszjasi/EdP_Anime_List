@@ -1,6 +1,6 @@
 package org.example.panels.TitlePanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.mainWindowWidth;
+import static org.example.constants.AnimeSearchWindowResolutions.*;
 import static org.example.constants.Colors.colorBlue;
 import static org.example.constants.Colors.colorWhite;
 import static org.example.constants.Fonts.titleFont;
@@ -22,7 +22,7 @@ public class TitlePanelView extends JPanel {
     }
 
     private void initTitlePanel() {
-        setPreferredSize(new Dimension(mainWindowWidth, 80));
+        setPreferredSize(new Dimension(mainWindowWidth, titlePanelHeight));
         setBackground(colorBlue);
         setLayout(new BorderLayout());
     }
@@ -34,6 +34,7 @@ public class TitlePanelView extends JPanel {
         titleLabel.setFont(titleFont);
         titleLabel.setVerticalAlignment(JLabel.CENTER);
         titleLabel.setHorizontalAlignment(JLabel.LEFT);
-        titleLabel.setBorder(new CompoundBorder(titleLabel.getBorder(), new EmptyBorder(15, 15, 15, 15)));
+        titleLabel.setBorder(new CompoundBorder(
+                titleLabel.getBorder(), new EmptyBorder(marginHeight, marginWidth, marginHeight, marginWidth)));
     }
 }

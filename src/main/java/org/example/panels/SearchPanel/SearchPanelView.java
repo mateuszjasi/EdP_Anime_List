@@ -22,25 +22,34 @@ public class SearchPanelView extends JPanel implements ActionListener, FocusList
     private final SearchPanelController controller;
     private final JTextField searchAnimeTextField;
     private final JButton searchButton;
+    private final JProgressBar progressBar;
 
     public SearchPanelView(UserPanelView parent, UserPanelController parentController) {
         this.parent = parent;
         controller = new SearchPanelController(this, parentController);
         searchAnimeTextField = new JTextField(idleSearchFieldText);
         searchButton = new JButton();
+        progressBar = new JProgressBar();
 
         initPanel();
         initSearchField();
         initSearchButton();
+        initProgressBar();
 
         add(searchAnimeTextField);
         add(searchButton);
     }
 
     private void initPanel() {
-        setPreferredSize(new Dimension(parent.getWidth(), 75));
+        setPreferredSize(new Dimension(parent.getWidth(), parent.getHeight() / 2));
         setBackground(colorWhite);
         setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
+    }
+
+    private void initProgressBar() {
+        progressBar.setPreferredSize(new Dimension(600, buttonHeight));
+        progressBar.setIndeterminate(false);
+        progressBar.setMaximum(10);
     }
 
     private void initSearchField() {
@@ -82,5 +91,13 @@ public class SearchPanelView extends JPanel implements ActionListener, FocusList
 
     public JButton getSearchButton() {
         return searchButton;
+    }
+
+    public JProgressBar getProgressBar() {
+        return progressBar;
+    }
+
+    public SearchPanelController getController() {
+        return controller;
     }
 }

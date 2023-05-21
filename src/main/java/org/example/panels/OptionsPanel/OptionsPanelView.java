@@ -4,7 +4,6 @@ import static org.example.constants.AnimeSearchWindowResolutions.buttonHeight;
 import static org.example.constants.AnimeSearchWindowResolutions.buttonWidth;
 import static org.example.constants.Colors.*;
 import static org.example.constants.Strings.*;
-import static org.example.constants.Strings.searchIconPath;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,9 +31,9 @@ public class OptionsPanelView extends JPanel implements ActionListener, ChangeLi
         initPanel();
         initButton(nextPageButton, rightArrowPath);
         initButton(previousPageButton, leftArrowPath);
-        initButton(addToWatchingButton, searchIconPath);
-        initButton(addToPlanToWatchButton, searchIconPath);
-        initButton(myListButton, searchIconPath);
+        initButton(addToWatchingButton, watchingIconPath);
+        initButton(addToPlanToWatchButton, planToWatchIconPath);
+        initButton(myListButton, myListIconPath);
 
         add(previousPageButton);
         add(addToWatchingButton);
@@ -44,7 +43,7 @@ public class OptionsPanelView extends JPanel implements ActionListener, ChangeLi
     }
 
     private void initPanel() {
-        setPreferredSize(new Dimension(parent.getWidth(), 75));
+        setPreferredSize(new Dimension(parent.getWidth(), parent.getHeight() / 2));
         setBackground(colorWhite);
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
     }
@@ -56,20 +55,20 @@ public class OptionsPanelView extends JPanel implements ActionListener, ChangeLi
         button.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, colorLightGray));
         button.addActionListener(this);
         button.setFocusable(false);
-        if (button == nextPageButton || button == previousPageButton) {
-            button.addChangeListener(this);
+        button.addChangeListener(this);
+        if (button != myListButton) {
             button.setEnabled(false);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        controller.newPage(e);
+        controller.buttonClicked(e);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        controller.setPagingButtonColor(e);
+        controller.setButtonsColor(e);
     }
 
     public JButton getNextPageButton() {
@@ -90,5 +89,13 @@ public class OptionsPanelView extends JPanel implements ActionListener, ChangeLi
 
     public JButton getMyListButton() {
         return myListButton;
+    }
+
+    public OptionsPanelController getController() {
+        return controller;
+    }
+
+    public UserPanelView getUserParent() {
+        return parent;
     }
 }

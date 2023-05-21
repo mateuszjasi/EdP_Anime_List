@@ -20,10 +20,9 @@ public class SearchPanelController {
 
     public void searchAnime(ActionEvent e) {
         JButton searchButton = view.getSearchButton();
-        JTextField searchAnimeTextField = view.getSearchAnimeTextField();
+        String searchAnimeTextField = view.getSearchAnimeTextField().getText();
         if (e.getSource() == searchButton
-                && !(searchAnimeTextField.getText().equals(idleSearchFieldText)
-                        || searchAnimeTextField.getText().isEmpty())) {
+                && !(searchAnimeTextField.equals(idleSearchFieldText) || searchAnimeTextField.isEmpty())) {
             parentController.setOffset(0);
             parentController.searchAnime();
         }
@@ -43,5 +42,30 @@ public class SearchPanelController {
             searchAnimeTextField.setText("");
             searchAnimeTextField.setForeground(Color.BLACK);
         }
+    }
+
+    public void startProgressBar() {
+        view.getSearchButton().setEnabled(false);
+        JProgressBar progressBar = view.getProgressBar();
+        JTextField searchAnimeTextField = view.getSearchAnimeTextField();
+        progressBar.setValue(0);
+        progressBar.setString("Looking for: " + searchAnimeTextField.getText());
+        progressBar.setStringPainted(true);
+        view.remove(searchAnimeTextField);
+        view.add(progressBar, 0);
+        view.revalidate();
+        view.repaint();
+    }
+
+    public void updateProgressBar() {
+        view.getProgressBar().setValue(view.getProgressBar().getValue() + 1);
+    }
+
+    public void stopProgressBar() {
+        view.getSearchButton().setEnabled(true);
+        view.remove(view.getProgressBar());
+        view.add(view.getSearchAnimeTextField(), 0);
+        view.revalidate();
+        view.repaint();
     }
 }

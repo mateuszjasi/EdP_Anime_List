@@ -1,31 +1,23 @@
 package org.example.panels.UserPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageHeight;
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageWidth;
-import static org.example.constants.AnimeSearchWindowTableColumns.imageColumnID;
-
-import java.awt.*;
-import java.net.URL;
 import java.util.List;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
-import org.example.panels.ResultPanel.ResultPanelView;
-import org.example.panels.SearchPanel.SearchPanelView;
+import org.example.panels.OptionsPanel.OptionsPanelController;
+import org.example.panels.ResultPanel.ResultPanelController;
+import org.example.panels.SearchPanel.SearchPanelController;
 import org.example.service.AnimeService;
 
 public class UserPanelController {
     private final UserPanelView view;
     private final AnimeService animeService;
-    private final ResultPanelView resultPanel;
     private int offset;
 
-    public UserPanelController(UserPanelView view, ResultPanelView resultPanel) {
+    public UserPanelController(UserPanelView view) {
         animeService = new AnimeService();
         offset = 0;
         this.view = view;
-        this.resultPanel = resultPanel;
     }
 
     public int getOffset() {
@@ -36,29 +28,35 @@ public class UserPanelController {
         this.offset = offset;
     }
 
-    @SneakyThrows
     public void searchAnime() {
-        SearchPanelView searchPanel = view.getSearchPanel();
-        String animeTitle = searchPanel.getSearchAnimeTextField().getText();
-        DefaultTableModel tableModel = resultPanel.getTableModel();
-        JTable resultTable = resultPanel.getResultTable();
-        tableModel.setRowCount(0);
-        List<Anime> animeList = animeService.getAnimeFromTitle(animeTitle, offset);
-        for (int i = 0; i < animeList.size(); i++) {
-            Anime anime = animeList.get(i);
-            tableModel.addRow(new String[] {
-                String.valueOf(anime.getId()),
-                null,
-                anime.getTitle(),
-                anime.getStatus().getString(),
-                anime.getNumEpisodes(),
-                anime.getMean()
-            });
-            ImageIcon image = new ImageIcon(new URL(anime.getImageUrl()));
-            Image scaledImage =
-                    image.getImage().getScaledInstance(animeImageWidth, animeImageHeight, Image.SCALE_DEFAULT);
-            resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
-        }
-        view.getOptionsPanel().getNextPageButton().setEnabled(animeList.size() >= 10);
+        ResultPanelController resultPanelController =
+                view.getUserParent().getResultPanel().getController();
+        SearchPanelController searchPanelController = view.getSearchPanel().getController();
+        OptionsPanelController optionsPanelController = view.getOptionsPanel().getController();
+        SwingWorker<List<Anime>, Void> worker = new SwingWorker<>() {
+            @Override
+            protected List<Anime> doInBackground() {
+                String animeTitle =
+                        view.getSearchPanel().getSearchAnimeTextField().getText();
+                return animeService.getAnimeFromTitle(
+                        animeTitle, offset, view.getSearchPanel().getController());
+            }
+
+            @Override
+            @SneakyThrows
+            protected void done() {
+                List<Anime> animeList = get();
+                resultPanelController.addDataToTable(animeList);
+                searchPanelController.stopProgressBar();
+                optionsPanelController.enableButtons();
+            }
+        };
+        worker.execute();
+        searchPanelController.startProgressBar();
+        optionsPanelController.disableButtons();
+    }
+
+    public Anime getAnime(int id) {
+        return animeService.getAnimeFromId(id);
     }
 }

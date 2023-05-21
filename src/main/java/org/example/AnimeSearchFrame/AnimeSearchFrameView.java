@@ -16,8 +16,8 @@ public class AnimeSearchFrameView extends JFrame {
         initFrame();
         initMarginPanels();
 
-        JPanel titlePanel = new TitlePanelView();
-        JPanel bodyPanel = new BodyPanelView(marginPanel1, titlePanel);
+        TitlePanelView titlePanel = new TitlePanelView();
+        BodyPanelView bodyPanel = new BodyPanelView(titlePanel);
 
         add(marginPanel1, BorderLayout.WEST);
         add(marginPanel2, BorderLayout.SOUTH);
@@ -40,10 +40,10 @@ public class AnimeSearchFrameView extends JFrame {
 
     private void initMarginPanels() {
         marginPanel1.setBackground(colorBlue);
-        marginPanel1.setPreferredSize(new Dimension(15, mainWindowHeight));
+        marginPanel1.setPreferredSize(new Dimension(marginWidth, mainWindowHeight));
         marginPanel2.setBackground(colorBlue);
-        marginPanel2.setPreferredSize(new Dimension(mainWindowWidth, 15));
+        marginPanel2.setPreferredSize(new Dimension(mainWindowWidth, marginHeight));
         marginPanel3.setBackground(colorBlue);
-        marginPanel3.setPreferredSize(new Dimension(15, mainWindowHeight));
+        marginPanel3.setPreferredSize(new Dimension(marginWidth, mainWindowHeight));
     }
 }

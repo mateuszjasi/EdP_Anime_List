@@ -4,11 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Fixes after code clean-up, added database connection">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added queries and database to project config">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/my_list.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/plan_to_watch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/watching.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/AddedAnimeRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowResolutions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowResolutions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" afterDir="false" />
     </list>
@@ -101,7 +118,7 @@
     "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example",
+    "last_opened_file_path": "E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example/graphic",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
@@ -117,6 +134,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example\graphic" />
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -127,7 +145,7 @@
       <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EdP_Anime_List [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="JTableExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JTableExamples" />
       <module name="EdP_Anime_List.main" />
@@ -234,8 +252,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Gradle.EdP_Anime_List [spotlessApply]" />
+        <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Gradle.EdP_Anime_List [spotlessCheck]" />
         <item itemvalue="Application.JTableExamples" />
         <item itemvalue="Gradle.EdP_Anime_List [compileJava]" />
@@ -260,7 +278,8 @@
       <workItem from="1684409872220" duration="6242000" />
       <workItem from="1684511077703" duration="16498000" />
       <workItem from="1684596584708" duration="7732000" />
-      <workItem from="1684610627956" duration="3348000" />
+      <workItem from="1684610627956" duration="3570000" />
+      <workItem from="1684674857781" duration="26792000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -311,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684604701567</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added queries and database to project config">
+      <created>1684614500200</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684614500200</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +361,8 @@
     <MESSAGE value="Added paging buttons, added tooltip to title column, changed colors, minor code cleanup" />
     <MESSAGE value="Code clean-up - breaking up the code into multiple files" />
     <MESSAGE value="Fixes after code clean-up, added database connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes after code clean-up, added database connection" />
+    <MESSAGE value="Added queries and database to project config" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added queries and database to project config" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

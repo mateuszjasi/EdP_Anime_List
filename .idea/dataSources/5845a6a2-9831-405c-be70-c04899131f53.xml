@@ -35,7 +35,7 @@
       <DataType>varchar(2083)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="13" parent="9" name="state">
+    <column id="13" parent="9" name="status">
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>

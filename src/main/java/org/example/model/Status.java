@@ -4,6 +4,7 @@ public enum Status {
     finished_airing("Finished"),
     currently_airing("Airing"),
     not_yet_aired("Upcoming"),
+    plan_to_watch("Plan to watch"),
     watching("Watching"),
     on_hold("On Hold"),
     completed("Completed"),

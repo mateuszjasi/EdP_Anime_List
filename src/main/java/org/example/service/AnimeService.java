@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
 import org.example.model.Status;
+import org.example.panels.SearchPanel.SearchPanelController;
 
 @RequiredArgsConstructor
 public class AnimeService {
@@ -50,7 +51,7 @@ public class AnimeService {
                 .collect(Collectors.toList());
     }
 
-    public List<Anime> getAnimeFromTitle(String title, int offset) {
+    public List<Anime> getAnimeFromTitle(String title, int offset, SearchPanelController controller) {
         List<Integer> list = getAnimeIds(title, offset);
         List<Anime> animeList = new ArrayList<>();
 
@@ -77,10 +78,30 @@ public class AnimeService {
                                     ? jsonObject.get("num_episodes").getAsString()
                                     : "?")
                     .build();
-
             animeList.add(anime);
+            controller.updateProgressBar();
         }
 
         return animeList;
+    }
+
+    public Anime getAnimeFromId(int id) {
+        String response = getResponse(URL + "/" + id + "?fields=id,title,main_picture,num_episodes")
+                .body();
+        JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
+
+        return Anime.builder()
+                .id(id)
+                .title(jsonObject.get("title").getAsString())
+                .imageUrl(jsonObject
+                        .get("main_picture")
+                        .getAsJsonObject()
+                        .get("large")
+                        .getAsString())
+                .numEpisodes(
+                        jsonObject.get("num_episodes").getAsInt() != 0
+                                ? jsonObject.get("num_episodes").getAsString()
+                                : "?")
+                .build();
     }
 }

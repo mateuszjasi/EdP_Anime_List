@@ -1,7 +1,6 @@
 package org.example.panels.ResultPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageHeight;
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageWidth;
+import static org.example.constants.AnimeSearchWindowResolutions.*;
 import static org.example.constants.AnimeSearchWindowTableColumns.*;
 
 import java.awt.*;
@@ -12,6 +11,7 @@ import org.example.utility.ImageRenderer;
 import org.example.utility.TooltipTableCellRenderer;
 
 public class ResultPanelView extends JPanel {
+    private final ResultPanelController controller;
     private DefaultTableModel tableModel;
     private JTable resultTable;
     private JScrollPane scrollPane;
@@ -19,13 +19,14 @@ public class ResultPanelView extends JPanel {
 
     public ResultPanelView(BodyPanelView parent) {
         this.parent = parent;
+        this.controller = new ResultPanelController(this);
         initPanel();
         initScrollPaneTable();
         add(scrollPane, BorderLayout.CENTER);
     }
 
     private void initPanel() {
-        setPreferredSize(new Dimension(parent.getWidth(), 785));
+        setPreferredSize(new Dimension(parent.getWidth(), parent.getHeight() - userPanelHeight));
         setLayout(new BorderLayout());
     }
 
@@ -55,7 +56,12 @@ public class ResultPanelView extends JPanel {
         resultTable.setRowSelectionAllowed(true);
         resultTable.setColumnSelectionAllowed(false);
         resultTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        resultTable.getSelectionModel().addListSelectionListener(e -> listSelection());
         scrollPane = new JScrollPane(resultTable);
+    }
+
+    public void listSelection() {
+        controller.rowSelected();
     }
 
     public DefaultTableModel getTableModel() {
@@ -64,5 +70,13 @@ public class ResultPanelView extends JPanel {
 
     public JTable getResultTable() {
         return resultTable;
+    }
+
+    public BodyPanelView getBodyParent() {
+        return parent;
+    }
+
+    public ResultPanelController getController() {
+        return controller;
     }
 }
