@@ -8,6 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -38,17 +39,22 @@ public class AnimeService {
                 getResponse(URL + "?offset=" + offset + "&q=" + encodedTitle).body();
 
         JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
-        JsonArray jsonArray = jsonObject.get("data").getAsJsonArray();
 
-        return IntStream.range(0, jsonArray.size())
-                .mapToObj(i -> jsonArray
-                        .get(i)
-                        .getAsJsonObject()
-                        .get("node")
-                        .getAsJsonObject()
-                        .get("id")
-                        .getAsInt())
-                .collect(Collectors.toList());
+        if (jsonObject.has("error")) {
+            return Collections.emptyList();
+        } else {
+            JsonArray jsonArray = jsonObject.get("data").getAsJsonArray();
+
+            return IntStream.range(0, jsonArray.size())
+                    .mapToObj(i -> jsonArray
+                            .get(i)
+                            .getAsJsonObject()
+                            .get("node")
+                            .getAsJsonObject()
+                            .get("id")
+                            .getAsInt())
+                    .collect(Collectors.toList());
+        }
     }
 
     public List<Anime> getAnimeFromTitle(String title, int offset, SearchPanelController controller) {
