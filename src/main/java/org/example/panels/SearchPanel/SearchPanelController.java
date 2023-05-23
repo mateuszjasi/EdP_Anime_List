@@ -7,24 +7,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusEvent;
 import javax.swing.*;
+import lombok.AllArgsConstructor;
 import org.example.panels.UserPanel.UserPanelController;
 
+@AllArgsConstructor
 public class SearchPanelController {
-    private final SearchPanelView view;
-    private final UserPanelController parentController;
-
-    public SearchPanelController(SearchPanelView view, UserPanelController parentController) {
-        this.parentController = parentController;
-        this.view = view;
-    }
+    private final SearchPanelView searchPanelView;
+    private final UserPanelController userPanelController;
 
     public void searchAnime(ActionEvent e) {
-        JButton searchButton = view.getSearchButton();
-        String searchAnimeTextField = view.getSearchAnimeTextField().getText();
+        JButton searchButton = searchPanelView.getSearchButton();
+        String searchAnimeTextField = searchPanelView.getSearchAnimeTextField().getText();
         if (e.getSource() == searchButton
                 && !(searchAnimeTextField.equals(idleSearchFieldText) || searchAnimeTextField.isEmpty())) {
-            parentController.setOffset(0);
-            parentController.searchAnime();
+            userPanelController.setOffset(0);
+            userPanelController.searchAnime();
         }
     }
 
@@ -45,27 +42,29 @@ public class SearchPanelController {
     }
 
     public void startProgressBar() {
-        view.getSearchButton().setEnabled(false);
-        JProgressBar progressBar = view.getSearchProgressBar();
-        JTextField searchAnimeTextField = view.getSearchAnimeTextField();
+        searchPanelView.getSearchButton().setEnabled(false);
+        JProgressBar progressBar = searchPanelView.getSearchProgressBar();
+        JTextField searchAnimeTextField = searchPanelView.getSearchAnimeTextField();
         progressBar.setValue(0);
         progressBar.setString("Looking for: " + searchAnimeTextField.getText());
         progressBar.setStringPainted(true);
-        view.remove(searchAnimeTextField);
-        view.add(progressBar, 0);
-        view.revalidate();
-        view.repaint();
+        searchPanelView.remove(searchAnimeTextField);
+        searchPanelView.add(progressBar, 0);
+        searchPanelView.revalidate();
+        searchPanelView.repaint();
     }
 
     public void updateProgressBar() {
-        view.getSearchProgressBar().setValue(view.getSearchProgressBar().getValue() + 1);
+        searchPanelView
+                .getSearchProgressBar()
+                .setValue(searchPanelView.getSearchProgressBar().getValue() + 1);
     }
 
     public void stopProgressBar() {
-        view.getSearchButton().setEnabled(true);
-        view.remove(view.getSearchProgressBar());
-        view.add(view.getSearchAnimeTextField(), 0);
-        view.revalidate();
-        view.repaint();
+        searchPanelView.getSearchButton().setEnabled(true);
+        searchPanelView.remove(searchPanelView.getSearchProgressBar());
+        searchPanelView.add(searchPanelView.getSearchAnimeTextField(), 0);
+        searchPanelView.revalidate();
+        searchPanelView.repaint();
     }
 }

@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added loading bar, adding anime to database implemented, protection against adding the same anime multiple times, minor fixes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Separated Models from Views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +127,7 @@
       <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EdP_Anime_List [spotlessApply]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="JTableExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JTableExamples" />
       <module name="EdP_Anime_List.main" />
@@ -251,8 +235,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.EdP_Anime_List [spotlessApply]" />
-        <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Gradle.EdP_Anime_List [spotlessCheck]" />
+        <item itemvalue="Gradle.EdP_Anime_List [build]" />
         <item itemvalue="Application.JTableExamples" />
         <item itemvalue="Gradle.EdP_Anime_List [compileJava]" />
       </list>
@@ -281,7 +265,7 @@
       <workItem from="1684749316001" duration="75000" />
       <workItem from="1684759778432" duration="1070000" />
       <workItem from="1684769638143" duration="45000" />
-      <workItem from="1684871593471" duration="4520000" />
+      <workItem from="1684871593471" duration="7413000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -353,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684769663506</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Separated Models from Views">
+      <created>1684876205806</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684876205806</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +371,8 @@
     <MESSAGE value="Added queries and database to project config" />
     <MESSAGE value="Added loading bar, adding anime to database implemented, protection against adding the same anime multiple times, minor fixes" />
     <MESSAGE value="Empty API response fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empty API response fix" />
+    <MESSAGE value="Separated Models from Views" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separated Models from Views" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

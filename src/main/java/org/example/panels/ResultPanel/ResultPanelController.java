@@ -10,22 +10,20 @@ import java.net.URL;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
 import org.example.panels.OptionsPanel.OptionsPanelController;
 
+@RequiredArgsConstructor
 public class ResultPanelController {
-    private final ResultPanelView view;
-
-    public ResultPanelController(ResultPanelView view) {
-        this.view = view;
-    }
+    private final ResultPanelView resultPanelView;
 
     public void rowSelected() {
         OptionsPanelController optionsPanelController =
-                view.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
-        JTable resultTable = view.getResultTable();
-        if (!view.getResultTable().getSelectionModel().isSelectionEmpty()) {
+                resultPanelView.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
+        JTable resultTable = resultPanelView.getResultTable();
+        if (!resultPanelView.getResultTable().getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
             optionsPanelController.enableAddButtons(id);
         } else {
@@ -36,9 +34,10 @@ public class ResultPanelController {
     @SneakyThrows
     public void addDataToTable(List<Anime> animeList) {
         OptionsPanelController optionsPanelController =
-                view.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
-        DefaultTableModel tableModel = view.getTableModel();
-        JTable resultTable = view.getResultTable();
+                resultPanelView.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
+        DefaultTableModel tableModel = resultPanelView.getTableModel();
+        JTable resultTable = resultPanelView.getResultTable();
+        // change color of anime row in database - Problem: can't highlight selected row
         //        DefaultTableCellRenderer renderer = new AddedAnimeRender(optionsPanelController);
         //        for (int j = 2; j < resultTable.getColumnCount(); j++) {
         //            resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);

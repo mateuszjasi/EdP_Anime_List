@@ -9,50 +9,53 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.example.model.Anime;
 import org.example.model.Status;
 import org.example.panels.UserPanel.UserPanelController;
 import org.example.service.MySqlConnection;
 
 @Getter
+@RequiredArgsConstructor
 public class OptionsPanelController {
-    private final UserPanelController parentController;
-    private final OptionsPanelView view;
-    private final MySqlConnection database;
-    private final List<Integer> myAnimeListIds;
-
-    public OptionsPanelController(OptionsPanelView view, UserPanelController parentController) {
-        this.parentController = parentController;
-        this.view = view;
-        this.database = new MySqlConnection();
-        myAnimeListIds = database.getMyAnimeListIds();
-    }
+    private final OptionsPanelView optionsPanelView;
+    private final UserPanelController userPanelController;
+    private final MySqlConnection mySqlConnection = new MySqlConnection();
+    private final List<Integer> myAnimeListIds = mySqlConnection.getMyAnimeListIds();
+    private boolean searching;
 
     public void buttonClicked(ActionEvent e) {
-        JButton nextPageButton = view.getNextPageButton();
-        JButton previousPageButton = view.getPreviousPageButton();
-        JButton addToWatchingButton = view.getAddToWatchingButton();
-        JButton addToPlanToWatchButton = view.getAddToPlanToWatchButton();
-        JButton myListButton = view.getMyListButton();
+        JButton nextPageButton = optionsPanelView.getNextPageButton();
+        JButton previousPageButton = optionsPanelView.getPreviousPageButton();
+        JButton addToWatchingButton = optionsPanelView.getAddToWatchingButton();
+        JButton addToPlanToWatchButton = optionsPanelView.getAddToPlanToWatchButton();
+        JButton myListButton = optionsPanelView.getMyListButton();
         if (e.getSource() == nextPageButton || e.getSource() == previousPageButton) {
             if (e.getSource() == nextPageButton) {
-                parentController.setOffset(parentController.getOffset() + 10);
+                userPanelController.setOffset(userPanelController.getOffset() + 10);
             } else {
-                parentController.setOffset(parentController.getOffset() - 10);
+                userPanelController.setOffset(userPanelController.getOffset() - 10);
             }
-            previousPageButton.setEnabled(parentController.getOffset() > 0);
-            parentController.searchAnime();
+            previousPageButton.setEnabled(userPanelController.getOffset() > 0);
+            userPanelController.searchAnime();
         }
         if (e.getSource() == addToWatchingButton || e.getSource() == addToPlanToWatchButton) {
             addToWatchingButton.setEnabled(false);
             addToPlanToWatchButton.setEnabled(false);
-            JTable resultTable =
-                    view.getUserPanel().getBodyPanel().getResultPanel().getResultTable();
+            JTable resultTable = optionsPanelView
+                    .getUserPanel()
+                    .getBodyPanel()
+                    .getResultPanel()
+                    .getResultTable();
             int selectedRow = resultTable.getSelectedRow();
             if (selectedRow != -1) {
                 int id = Integer.parseInt((String) resultTable.getValueAt(selectedRow, idColumnID));
-                Anime anime = view.getUserPanel().getController().getAnime(id);
-                database.addAnime(
+                Anime anime = optionsPanelView
+                        .getUserPanel()
+                        .getController()
+                        .getAnimeService()
+                        .getAnimeFromId(id);
+                mySqlConnection.addAnime(
                         id,
                         anime.getTitle(),
                         anime.getImageUrl(),
@@ -69,7 +72,7 @@ public class OptionsPanelController {
     }
 
     public void enableNextPageButton(int animeListSize) {
-        view.getNextPageButton().setEnabled(animeListSize >= 10);
+        optionsPanelView.getNextPageButton().setEnabled(animeListSize >= 10);
     }
 
     public void setButtonsColor(ChangeEvent e) {
@@ -78,29 +81,34 @@ public class OptionsPanelController {
     }
 
     public void enableAddButtons(int id) {
-        if (!myAnimeListIds.contains(id)) {
-            view.getAddToPlanToWatchButton().setEnabled(true);
-            view.getAddToWatchingButton().setEnabled(true);
-        } else {
-            disableAddButtons();
+        if (!searching) {
+            if (!myAnimeListIds.contains(id)) {
+                optionsPanelView.getAddToPlanToWatchButton().setEnabled(true);
+                optionsPanelView.getAddToWatchingButton().setEnabled(true);
+            } else {
+                optionsPanelView.getAddToPlanToWatchButton().setEnabled(false);
+                optionsPanelView.getAddToWatchingButton().setEnabled(false);
+            }
         }
     }
 
     public void disableAddButtons() {
-        view.getAddToPlanToWatchButton().setEnabled(false);
-        view.getAddToWatchingButton().setEnabled(false);
+        optionsPanelView.getAddToPlanToWatchButton().setEnabled(false);
+        optionsPanelView.getAddToWatchingButton().setEnabled(false);
     }
 
     public void disableButtons() {
-        view.getAddToPlanToWatchButton().setEnabled(false);
-        view.getAddToWatchingButton().setEnabled(false);
-        view.getNextPageButton().setEnabled(false);
-        view.getPreviousPageButton().setEnabled(false);
-        view.getMyListButton().setEnabled(false);
+        searching = true;
+        optionsPanelView.getAddToPlanToWatchButton().setEnabled(false);
+        optionsPanelView.getAddToWatchingButton().setEnabled(false);
+        optionsPanelView.getNextPageButton().setEnabled(false);
+        optionsPanelView.getPreviousPageButton().setEnabled(false);
+        optionsPanelView.getMyListButton().setEnabled(false);
     }
 
     public void enableButtons() {
-        view.getPreviousPageButton().setEnabled(parentController.getOffset() > 0);
-        view.getMyListButton().setEnabled(true);
+        searching = false;
+        optionsPanelView.getPreviousPageButton().setEnabled(userPanelController.getOffset() > 0);
+        optionsPanelView.getMyListButton().setEnabled(true);
     }
 }

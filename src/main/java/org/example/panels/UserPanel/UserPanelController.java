@@ -2,44 +2,36 @@ package org.example.panels.UserPanel;
 
 import java.util.List;
 import javax.swing.*;
-import lombok.SneakyThrows;
+import lombok.*;
 import org.example.model.Anime;
 import org.example.panels.OptionsPanel.OptionsPanelController;
 import org.example.panels.ResultPanel.ResultPanelController;
 import org.example.panels.SearchPanel.SearchPanelController;
 import org.example.service.AnimeService;
 
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class UserPanelController {
-    private final UserPanelView view;
-    private final AnimeService animeService;
+    private final UserPanelView userPanelView;
+    private final AnimeService animeService = new AnimeService();
     private int offset;
-
-    public UserPanelController(UserPanelView view) {
-        animeService = new AnimeService();
-        offset = 0;
-        this.view = view;
-    }
-
-    public int getOffset() {
-        return offset;
-    }
-
-    public void setOffset(int offset) {
-        this.offset = offset;
-    }
 
     public void searchAnime() {
         ResultPanelController resultPanelController =
-                view.getBodyPanel().getResultPanel().getResultPanelController();
-        SearchPanelController searchPanelController = view.getSearchPanel().getSearchPanelController();
-        OptionsPanelController optionsPanelController = view.getOptionsPanel().getOptionsPanelController();
+                userPanelView.getBodyPanel().getResultPanel().getResultPanelController();
+        SearchPanelController searchPanelController =
+                userPanelView.getSearchPanel().getSearchPanelController();
+        OptionsPanelController optionsPanelController =
+                userPanelView.getOptionsPanel().getOptionsPanelController();
+        String animeTitle =
+                userPanelView.getSearchPanel().getSearchAnimeTextField().getText();
+
         SwingWorker<List<Anime>, Void> worker = new SwingWorker<>() {
             @Override
             protected List<Anime> doInBackground() {
-                String animeTitle =
-                        view.getSearchPanel().getSearchAnimeTextField().getText();
                 return animeService.getAnimeFromTitle(
-                        animeTitle, offset, view.getSearchPanel().getSearchPanelController());
+                        animeTitle, offset, userPanelView.getSearchPanel().getSearchPanelController());
             }
 
             @Override
@@ -51,12 +43,9 @@ public class UserPanelController {
                 optionsPanelController.enableButtons();
             }
         };
-        worker.execute();
+
         searchPanelController.startProgressBar();
         optionsPanelController.disableButtons();
-    }
-
-    public Anime getAnime(int id) {
-        return animeService.getAnimeFromId(id);
+        worker.execute();
     }
 }
