@@ -23,7 +23,7 @@ public class ResultPanelController {
 
     public void rowSelected() {
         OptionsPanelController optionsPanelController =
-                view.getBodyParent().getUserPanel().getOptionsPanel().getController();
+                view.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
         JTable resultTable = view.getResultTable();
         if (!view.getResultTable().getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
@@ -36,7 +36,7 @@ public class ResultPanelController {
     @SneakyThrows
     public void addDataToTable(List<Anime> animeList) {
         OptionsPanelController optionsPanelController =
-                view.getBodyParent().getUserPanel().getOptionsPanel().getController();
+                view.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
         DefaultTableModel tableModel = view.getTableModel();
         JTable resultTable = view.getResultTable();
         //        DefaultTableCellRenderer renderer = new AddedAnimeRender(optionsPanelController);
@@ -59,6 +59,6 @@ public class ResultPanelController {
                     image.getImage().getScaledInstance(animeImageWidth, animeImageHeight, Image.SCALE_DEFAULT);
             resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
         }
-        optionsPanelController.setNextPageButton(animeList.size());
+        optionsPanelController.enableNextPageButton(animeList.size());
     }
 }

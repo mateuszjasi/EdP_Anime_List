@@ -30,16 +30,16 @@ public class UserPanelController {
 
     public void searchAnime() {
         ResultPanelController resultPanelController =
-                view.getUserParent().getResultPanel().getController();
-        SearchPanelController searchPanelController = view.getSearchPanel().getController();
-        OptionsPanelController optionsPanelController = view.getOptionsPanel().getController();
+                view.getBodyPanel().getResultPanel().getResultPanelController();
+        SearchPanelController searchPanelController = view.getSearchPanel().getSearchPanelController();
+        OptionsPanelController optionsPanelController = view.getOptionsPanel().getOptionsPanelController();
         SwingWorker<List<Anime>, Void> worker = new SwingWorker<>() {
             @Override
             protected List<Anime> doInBackground() {
                 String animeTitle =
                         view.getSearchPanel().getSearchAnimeTextField().getText();
                 return animeService.getAnimeFromTitle(
-                        animeTitle, offset, view.getSearchPanel().getController());
+                        animeTitle, offset, view.getSearchPanel().getSearchPanelController());
             }
 
             @Override

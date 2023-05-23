@@ -8,11 +8,13 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
+import lombok.Getter;
 import org.example.model.Anime;
 import org.example.model.Status;
 import org.example.panels.UserPanel.UserPanelController;
 import org.example.service.MySqlConnection;
 
+@Getter
 public class OptionsPanelController {
     private final UserPanelController parentController;
     private final OptionsPanelView view;
@@ -45,11 +47,11 @@ public class OptionsPanelController {
             addToWatchingButton.setEnabled(false);
             addToPlanToWatchButton.setEnabled(false);
             JTable resultTable =
-                    view.getUserParent().getUserParent().getResultPanel().getResultTable();
+                    view.getUserPanel().getBodyPanel().getResultPanel().getResultTable();
             int selectedRow = resultTable.getSelectedRow();
             if (selectedRow != -1) {
                 int id = Integer.parseInt((String) resultTable.getValueAt(selectedRow, idColumnID));
-                Anime anime = view.getUserParent().getController().getAnime(id);
+                Anime anime = view.getUserPanel().getController().getAnime(id);
                 database.addAnime(
                         id,
                         anime.getTitle(),
@@ -66,7 +68,7 @@ public class OptionsPanelController {
         }
     }
 
-    public void setNextPageButton(int animeListSize) {
+    public void enableNextPageButton(int animeListSize) {
         view.getNextPageButton().setEnabled(animeListSize >= 10);
     }
 
@@ -87,10 +89,6 @@ public class OptionsPanelController {
     public void disableAddButtons() {
         view.getAddToPlanToWatchButton().setEnabled(false);
         view.getAddToWatchingButton().setEnabled(false);
-    }
-
-    public List<Integer> getMyAnimeListIds() {
-        return myAnimeListIds;
     }
 
     public void disableButtons() {

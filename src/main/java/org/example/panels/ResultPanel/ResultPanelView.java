@@ -1,82 +1,23 @@
 package org.example.panels.ResultPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.*;
-import static org.example.constants.AnimeSearchWindowTableColumns.*;
-
 import java.awt.*;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import org.example.panels.BodyPanel.BodyPanelView;
-import org.example.utility.ImageRenderer;
-import org.example.utility.TooltipTableCellRenderer;
 
-public class ResultPanelView extends JPanel {
-    private final ResultPanelController controller;
-    private DefaultTableModel tableModel;
-    private JTable resultTable;
-    private JScrollPane scrollPane;
-    private final BodyPanelView parent;
+public class ResultPanelView extends ResultPanelModel implements ListSelectionListener {
+    public ResultPanelView(BodyPanelView bodyPanel) {
+        this.bodyPanel = bodyPanel;
+        this.resultPanelController = new ResultPanelController(this);
 
-    public ResultPanelView(BodyPanelView parent) {
-        this.parent = parent;
-        this.controller = new ResultPanelController(this);
-        initPanel();
+        initResultPanel();
         initScrollPaneTable();
-        add(scrollPane, BorderLayout.CENTER);
+
+        add(scrollTablePane, BorderLayout.CENTER);
     }
 
-    private void initPanel() {
-        setPreferredSize(new Dimension(parent.getWidth(), parent.getHeight() - userPanelHeight));
-        setLayout(new BorderLayout());
-    }
-
-    private void initScrollPaneTable() {
-        tableModel = new DefaultTableModel(null, tableHeaders) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        resultTable = new JTable(tableModel);
-        resultTable.getColumnModel().getColumn(idColumnID).setMinWidth(0);
-        resultTable.getColumnModel().getColumn(idColumnID).setMaxWidth(0);
-        resultTable.getColumnModel().getColumn(idColumnID).setWidth(0);
-        resultTable.getColumnModel().getColumn(imageColumnID).setCellRenderer(new ImageRenderer());
-        resultTable.getColumnModel().getColumn(imageColumnID).setMinWidth(animeImageWidth);
-        resultTable.getColumnModel().getColumn(imageColumnID).setMaxWidth(animeImageWidth);
-        resultTable.getColumnModel().getColumn(imageColumnID).setWidth(animeImageWidth);
-        resultTable.getColumnModel().getColumn(titleColumnID).setCellRenderer(new TooltipTableCellRenderer());
-        resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(600);
-        resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(60);
-        resultTable.getColumnModel().getColumn(numEpisodesColumnID).setMinWidth(30);
-        resultTable.getColumnModel().getColumn(meanColumnID).setMinWidth(30);
-        resultTable.setRowHeight(animeImageHeight);
-        resultTable.getTableHeader().setResizingAllowed(false);
-        resultTable.getTableHeader().setReorderingAllowed(false);
-        resultTable.setRowSelectionAllowed(true);
-        resultTable.setColumnSelectionAllowed(false);
-        resultTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        resultTable.getSelectionModel().addListSelectionListener(e -> listSelection());
-        scrollPane = new JScrollPane(resultTable);
-    }
-
-    public void listSelection() {
-        controller.rowSelected();
-    }
-
-    public DefaultTableModel getTableModel() {
-        return tableModel;
-    }
-
-    public JTable getResultTable() {
-        return resultTable;
-    }
-
-    public BodyPanelView getBodyParent() {
-        return parent;
-    }
-
-    public ResultPanelController getController() {
-        return controller;
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        resultPanelController.rowSelected();
     }
 }

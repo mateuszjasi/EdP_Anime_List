@@ -4,30 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added queries and database to project config">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/my_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/plan_to_watch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/watching.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utility/AddedAnimeRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added loading bar, adding anime to database implemented, protection against adding the same anime multiple times, minor fixes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AnimeSearchFrame/AnimeSearchFrameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowResolutions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/AnimeSearchWindowResolutions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,28 +108,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example/graphic",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example/graphic&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example\graphic" />
@@ -145,7 +143,7 @@
       <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.EdP_Anime_List [spotlessApply]">
     <configuration name="JTableExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JTableExamples" />
       <module name="EdP_Anime_List.main" />
@@ -279,7 +277,11 @@
       <workItem from="1684511077703" duration="16498000" />
       <workItem from="1684596584708" duration="7732000" />
       <workItem from="1684610627956" duration="3570000" />
-      <workItem from="1684674857781" duration="26792000" />
+      <workItem from="1684674857781" duration="27118000" />
+      <workItem from="1684749316001" duration="75000" />
+      <workItem from="1684759778432" duration="1070000" />
+      <workItem from="1684769638143" duration="45000" />
+      <workItem from="1684871593471" duration="4520000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -337,7 +339,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684614500200</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added loading bar, adding anime to database implemented, protection against adding the same anime multiple times, minor fixes">
+      <created>1684702079131</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684702079131</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Empty API response fix">
+      <created>1684769663506</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684769663506</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +378,9 @@
     <MESSAGE value="Code clean-up - breaking up the code into multiple files" />
     <MESSAGE value="Fixes after code clean-up, added database connection" />
     <MESSAGE value="Added queries and database to project config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added queries and database to project config" />
+    <MESSAGE value="Added loading bar, adding anime to database implemented, protection against adding the same anime multiple times, minor fixes" />
+    <MESSAGE value="Empty API response fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Empty API response fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

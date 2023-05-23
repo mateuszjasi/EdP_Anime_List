@@ -46,7 +46,7 @@ public class SearchPanelController {
 
     public void startProgressBar() {
         view.getSearchButton().setEnabled(false);
-        JProgressBar progressBar = view.getProgressBar();
+        JProgressBar progressBar = view.getSearchProgressBar();
         JTextField searchAnimeTextField = view.getSearchAnimeTextField();
         progressBar.setValue(0);
         progressBar.setString("Looking for: " + searchAnimeTextField.getText());
@@ -58,12 +58,12 @@ public class SearchPanelController {
     }
 
     public void updateProgressBar() {
-        view.getProgressBar().setValue(view.getProgressBar().getValue() + 1);
+        view.getSearchProgressBar().setValue(view.getSearchProgressBar().getValue() + 1);
     }
 
     public void stopProgressBar() {
         view.getSearchButton().setEnabled(true);
-        view.remove(view.getProgressBar());
+        view.remove(view.getSearchProgressBar());
         view.add(view.getSearchAnimeTextField(), 0);
         view.revalidate();
         view.repaint();
