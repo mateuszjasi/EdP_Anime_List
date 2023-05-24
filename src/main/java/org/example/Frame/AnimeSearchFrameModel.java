@@ -1,7 +1,7 @@
 package org.example.Frame;
 
-import static org.example.constants.Resolutions.*;
 import static org.example.constants.Colors.colorBlue;
+import static org.example.constants.Resolutions.*;
 import static org.example.constants.Strings.appTitle;
 import static org.example.constants.Strings.logoPath;
 

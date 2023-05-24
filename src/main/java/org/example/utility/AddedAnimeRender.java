@@ -1,7 +1,7 @@
 package org.example.utility;
 
-import static org.example.constants.TableColumns.idColumnID;
 import static org.example.constants.Colors.colorLightGray;
+import static org.example.constants.TableColumns.idColumnID;
 
 import java.awt.*;
 import javax.swing.*;

@@ -1,10 +1,10 @@
 package org.example.panels.SearchPanel;
 
-import static org.example.constants.Resolutions.buttonHeight;
-import static org.example.constants.Resolutions.buttonWidth;
 import static org.example.constants.Colors.*;
 import static org.example.constants.Colors.colorLightGray;
 import static org.example.constants.Fonts.searchFieldFont;
+import static org.example.constants.Resolutions.buttonHeight;
+import static org.example.constants.Resolutions.buttonWidth;
 import static org.example.constants.Strings.idleSearchFieldText;
 import static org.example.constants.Strings.searchIconPath;
 

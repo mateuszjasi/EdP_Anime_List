@@ -1,10 +1,10 @@
 package org.example.panels.TitlePanel;
 
-import static org.example.constants.Resolutions.*;
-import static org.example.constants.Resolutions.marginWidth;
 import static org.example.constants.Colors.colorBlue;
 import static org.example.constants.Colors.colorWhite;
 import static org.example.constants.Fonts.titleFont;
+import static org.example.constants.Resolutions.*;
+import static org.example.constants.Resolutions.marginWidth;
 import static org.example.constants.Strings.titlePanelTitle;
 
 import java.awt.*;

@@ -1,8 +1,8 @@
 package org.example.panels.BodyPanel;
 
+import static org.example.constants.Colors.colorWhite;
 import static org.example.constants.Resolutions.*;
 import static org.example.constants.Resolutions.marginHeight;
-import static org.example.constants.Colors.colorWhite;
 
 import java.awt.*;
 import javax.swing.*;
