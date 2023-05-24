@@ -8,38 +8,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.FocusEvent;
 import javax.swing.*;
 import lombok.AllArgsConstructor;
+import org.example.panels.BodyPanel.BodyPanelController;
 import org.example.panels.UserPanel.UserPanelController;
 
 @AllArgsConstructor
 public class SearchPanelController {
     private final SearchPanelView searchPanelView;
-    private final UserPanelController userPanelController;
 
     public void searchAnime(ActionEvent e) {
+        BodyPanelController bodyPanelController =
+                searchPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
         JButton searchButton = searchPanelView.getSearchButton();
         JTextField searchAnimeTextField = searchPanelView.getSearchAnimeTextField();
         if (e.getSource() == searchButton || e.getSource() == searchAnimeTextField) {
             if (!(searchAnimeTextField.getText().equals(idleSearchFieldText)
                     || searchAnimeTextField.getText().isEmpty())) {
-                userPanelController.setOffset(0);
-                userPanelController.searchAnime();
+                if (bodyPanelController.isDataFromApiMode()) {
+                    UserPanelController userPanelController =
+                            searchPanelView.getUserPanelView().getUserPanelController();
+                    userPanelController.setOffset(0);
+                    userPanelController.searchAnime();
+                } else {
+                    bodyPanelController.setMySqlConnectionOffset(0);
+                    bodyPanelController.searchAnimeDatabase();
+                }
             }
-        }
-    }
-
-    public void fillTextField(FocusEvent e, JTextField searchAnimeTextField) {
-        if (e.getSource() == searchAnimeTextField
-                && searchAnimeTextField.getText().isEmpty()) {
-            searchAnimeTextField.setText(idleSearchFieldText);
-            searchAnimeTextField.setForeground(colorLightGray);
-        }
-    }
-
-    public void clearTextField(FocusEvent e, JTextField searchAnimeTextField) {
-        if (e.getSource() == searchAnimeTextField
-                && searchAnimeTextField.getText().equals(idleSearchFieldText)) {
-            searchAnimeTextField.setText("");
-            searchAnimeTextField.setForeground(Color.BLACK);
         }
     }
 
@@ -68,5 +61,21 @@ public class SearchPanelController {
         searchPanelView.add(searchPanelView.getSearchAnimeTextField(), 0);
         searchPanelView.revalidate();
         searchPanelView.repaint();
+    }
+
+    public void fillTextField(FocusEvent e, JTextField searchAnimeTextField) {
+        if (e.getSource() == searchAnimeTextField
+                && searchAnimeTextField.getText().isEmpty()) {
+            searchAnimeTextField.setText(idleSearchFieldText);
+            searchAnimeTextField.setForeground(colorLightGray);
+        }
+    }
+
+    public void clearTextField(FocusEvent e, JTextField searchAnimeTextField) {
+        if (e.getSource() == searchAnimeTextField
+                && searchAnimeTextField.getText().equals(idleSearchFieldText)) {
+            searchAnimeTextField.setText("");
+            searchAnimeTextField.setForeground(Color.BLACK);
+        }
     }
 }

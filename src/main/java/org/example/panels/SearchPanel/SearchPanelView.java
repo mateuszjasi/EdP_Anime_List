@@ -8,8 +8,8 @@ import org.example.panels.UserPanel.UserPanelView;
 
 public class SearchPanelView extends SearchPanelModel implements ActionListener, FocusListener {
     public SearchPanelView(UserPanelView userPanel) {
-        this.userPanel = userPanel;
-        searchPanelController = new SearchPanelController(this, userPanel.getController());
+        this.userPanelView = userPanel;
+        searchPanelController = new SearchPanelController(this);
 
         searchButton = initSearchButton();
         searchProgressBar = initProgressBar();

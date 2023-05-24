@@ -5,7 +5,7 @@ import javax.swing.*;
 import lombok.*;
 import org.example.model.Anime;
 import org.example.panels.OptionsPanel.OptionsPanelController;
-import org.example.panels.ResultPanel.ResultPanelController;
+import org.example.panels.ResultPanel.ApiResultPanelController;
 import org.example.panels.SearchPanel.SearchPanelController;
 import org.example.service.AnimeService;
 
@@ -18,27 +18,27 @@ public class UserPanelController {
     private int offset;
 
     public void searchAnime() {
-        ResultPanelController resultPanelController =
-                userPanelView.getBodyPanel().getResultPanel().getResultPanelController();
+        ApiResultPanelController apiResultPanelController =
+                userPanelView.getBodyPanelView().getApiResultPanelView().getApiResultPanelController();
         SearchPanelController searchPanelController =
-                userPanelView.getSearchPanel().getSearchPanelController();
+                userPanelView.getSearchPanelView().getSearchPanelController();
         OptionsPanelController optionsPanelController =
-                userPanelView.getOptionsPanel().getOptionsPanelController();
+                userPanelView.getOptionsPanelView().getOptionsPanelController();
         String animeTitle =
-                userPanelView.getSearchPanel().getSearchAnimeTextField().getText();
+                userPanelView.getSearchPanelView().getSearchAnimeTextField().getText();
 
         SwingWorker<List<Anime>, Void> worker = new SwingWorker<>() {
             @Override
             protected List<Anime> doInBackground() {
                 return animeService.getAnimeFromTitle(
-                        animeTitle, offset, userPanelView.getSearchPanel().getSearchPanelController());
+                        animeTitle, offset, userPanelView.getSearchPanelView().getSearchPanelController());
             }
 
             @Override
             @SneakyThrows
             protected void done() {
                 List<Anime> animeList = get();
-                resultPanelController.addDataToTable(animeList);
+                apiResultPanelController.addDataToTable(animeList);
                 searchPanelController.stopProgressBar();
                 optionsPanelController.enableButtons();
             }

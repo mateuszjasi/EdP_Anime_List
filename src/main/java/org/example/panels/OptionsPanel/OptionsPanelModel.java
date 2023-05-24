@@ -15,12 +15,12 @@ import org.example.panels.UserPanel.UserPanelView;
 
 @Getter
 public abstract class OptionsPanelModel extends JPanel {
-    protected UserPanelView userPanel;
+    protected UserPanelView userPanelView;
     protected OptionsPanelController optionsPanelController;
     protected JButton nextPageButton, previousPageButton, addToWatchingButton, addToPlanToWatchButton, myListButton;
 
     protected void initOptionsPanel() {
-        setPreferredSize(new Dimension(userPanel.getWidth(), userPanel.getHeight() / 2));
+        setPreferredSize(new Dimension(userPanelView.getWidth(), userPanelView.getHeight() / 2));
         setBackground(colorWhite);
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
     }

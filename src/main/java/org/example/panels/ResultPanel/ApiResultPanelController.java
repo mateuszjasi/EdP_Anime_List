@@ -1,9 +1,9 @@
 package org.example.panels.ResultPanel;
 
+import static org.example.constants.ApiTableColumns.idColumnID;
+import static org.example.constants.ApiTableColumns.imageColumnID;
 import static org.example.constants.Resolutions.animeImageHeight;
 import static org.example.constants.Resolutions.animeImageWidth;
-import static org.example.constants.TableColumns.idColumnID;
-import static org.example.constants.TableColumns.imageColumnID;
 
 import java.awt.*;
 import java.net.URL;
@@ -16,14 +16,17 @@ import org.example.model.Anime;
 import org.example.panels.OptionsPanel.OptionsPanelController;
 
 @RequiredArgsConstructor
-public class ResultPanelController {
-    private final ResultPanelView resultPanelView;
+public class ApiResultPanelController {
+    private final ApiResultPanelView apiResultPanelView;
 
     public void rowSelected() {
-        OptionsPanelController optionsPanelController =
-                resultPanelView.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
-        JTable resultTable = resultPanelView.getResultTable();
-        if (!resultPanelView.getResultTable().getSelectionModel().isSelectionEmpty()) {
+        OptionsPanelController optionsPanelController = apiResultPanelView
+                .getBodyPanelView()
+                .getUserPanelView()
+                .getOptionsPanelView()
+                .getOptionsPanelController();
+        JTable resultTable = apiResultPanelView.getResultTable();
+        if (!apiResultPanelView.getResultTable().getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
             optionsPanelController.enableAddButtons(id);
         } else {
@@ -33,10 +36,13 @@ public class ResultPanelController {
 
     @SneakyThrows
     public void addDataToTable(List<Anime> animeList) {
-        OptionsPanelController optionsPanelController =
-                resultPanelView.getBodyPanel().getUserPanel().getOptionsPanel().getOptionsPanelController();
-        DefaultTableModel tableModel = resultPanelView.getTableModel();
-        JTable resultTable = resultPanelView.getResultTable();
+        OptionsPanelController optionsPanelController = apiResultPanelView
+                .getBodyPanelView()
+                .getUserPanelView()
+                .getOptionsPanelView()
+                .getOptionsPanelController();
+        DefaultTableModel tableModel = apiResultPanelView.getTableModel();
+        JTable resultTable = apiResultPanelView.getResultTable();
         // change color of anime row in database - Problem: can't highlight selected row
         //        DefaultTableCellRenderer renderer = new AddedAnimeRender(optionsPanelController);
         //        for (int j = 2; j < resultTable.getColumnCount(); j++) {

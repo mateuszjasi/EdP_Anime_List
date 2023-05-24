@@ -7,15 +7,18 @@ import static org.example.constants.Resolutions.marginHeight;
 import java.awt.*;
 import javax.swing.*;
 import lombok.Getter;
-import org.example.panels.ResultPanel.ResultPanelView;
+import org.example.panels.ResultPanel.ApiResultPanelView;
+import org.example.panels.ResultPanel.DatabaseResultPanelView;
 import org.example.panels.TitlePanel.TitlePanelView;
 import org.example.panels.UserPanel.UserPanelView;
 
 @Getter
 public abstract class BodyPanelModel extends JPanel {
-    protected UserPanelView userPanel;
-    protected ResultPanelView resultPanel;
-    protected TitlePanelView titlePanel;
+    protected BodyPanelController bodyPanelController;
+    protected UserPanelView userPanelView;
+    protected ApiResultPanelView apiResultPanelView;
+    protected DatabaseResultPanelView databaseResultPanelView;
+    protected TitlePanelView titlePanelView;
     protected JPanel insideMarginPanel1;
     protected JPanel insideMarginPanel2;
     protected JPanel insideMarginPanel3;
@@ -23,7 +26,7 @@ public abstract class BodyPanelModel extends JPanel {
     protected void initBodyPanel() {
         setBackground(colorWhite);
         setPreferredSize(new Dimension(
-                mainWindowWidth - marginWidth * 2, mainWindowHeight - titlePanel.getHeight() - marginHeight));
+                mainWindowWidth - marginWidth * 2, mainWindowHeight - titlePanelView.getHeight() - marginHeight));
         setLayout(new BorderLayout());
     }
 

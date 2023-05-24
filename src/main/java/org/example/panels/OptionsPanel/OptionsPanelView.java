@@ -10,8 +10,8 @@ import org.example.panels.UserPanel.UserPanelView;
 
 public class OptionsPanelView extends OptionsPanelModel implements ActionListener, ChangeListener {
     public OptionsPanelView(UserPanelView userPanel) {
-        this.userPanel = userPanel;
-        optionsPanelController = new OptionsPanelController(this, userPanel.getController());
+        this.userPanelView = userPanel;
+        optionsPanelController = new OptionsPanelController(this);
 
         initOptionsPanel();
         nextPageButton = initButton(nextPageIconPath);

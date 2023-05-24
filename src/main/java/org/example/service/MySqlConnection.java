@@ -19,17 +19,19 @@ public class MySqlConnection {
     }
 
     @SneakyThrows
-    public List<MyAnime> getMyAnimeList() {
+    public List<MyAnime> getMyAnimeList(String title, int offset) {
         List<MyAnime> myAnimeList = new ArrayList<>();
-        String query = "SELECT * FROM animelistdata";
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
+        String query = "SELECT * FROM animelistdata WHERE title LIKE ? ORDER BY title ASC LIMIT 10 OFFSET ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, "%" + title + "%");
+        preparedStatement.setInt(2, offset);
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             MyAnime myAnime = MyAnime.builder()
                     .id(resultSet.getInt("id"))
                     .imageUrl(resultSet.getString("imageUrl"))
                     .title(resultSet.getString("title"))
-                    .state(Status.valueOf(resultSet.getString("state")))
+                    .status(Status.valueOf(resultSet.getString("status")))
                     .score(resultSet.getInt("score"))
                     .progress(resultSet.getInt("progress"))
                     .progressMax(resultSet.getInt("progress_max"))
@@ -39,8 +41,6 @@ public class MySqlConnection {
                     .build();
             myAnimeList.add(myAnime);
         }
-        resultSet.close();
-        statement.close();
         return myAnimeList;
     }
 
@@ -62,6 +62,26 @@ public class MySqlConnection {
         String query = "UPDATE animelistdata SET progress = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, numEpisodes);
+        preparedStatement.setInt(2, id);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    @SneakyThrows
+    public void updateScore(int id, int score) {
+        String query = "UPDATE animelistdata SET score = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, score);
+        preparedStatement.setInt(2, id);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    @SneakyThrows
+    public void updateNote(int id, String note) {
+        String query = "UPDATE animelistdata SET note = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, note);
         preparedStatement.setInt(2, id);
         preparedStatement.executeUpdate();
         preparedStatement.close();

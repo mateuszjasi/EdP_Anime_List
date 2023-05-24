@@ -17,14 +17,14 @@ import org.example.panels.UserPanel.UserPanelView;
 
 @Getter
 public abstract class SearchPanelModel extends JPanel {
-    protected UserPanelView userPanel;
+    protected UserPanelView userPanelView;
     protected SearchPanelController searchPanelController;
     protected JTextField searchAnimeTextField;
     protected JButton searchButton;
     protected JProgressBar searchProgressBar;
 
     protected void initPanel() {
-        setPreferredSize(new Dimension(userPanel.getWidth(), userPanel.getHeight() / 2));
+        setPreferredSize(new Dimension(userPanelView.getWidth(), userPanelView.getHeight() / 2));
         setBackground(colorWhite);
         setLayout(new FlowLayout(FlowLayout.CENTER, 0, 30));
     }

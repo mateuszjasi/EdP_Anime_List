@@ -11,13 +11,13 @@ import org.example.panels.SearchPanel.SearchPanelView;
 
 @Getter
 public abstract class UserPanelModel extends JPanel {
-    protected UserPanelController controller;
-    protected BodyPanelView bodyPanel;
-    protected SearchPanelView searchPanel;
-    protected OptionsPanelView optionsPanel;
+    protected UserPanelController userPanelController;
+    protected BodyPanelView bodyPanelView;
+    protected SearchPanelView searchPanelView;
+    protected OptionsPanelView optionsPanelView;
 
     protected void initPanel() {
-        setPreferredSize(new Dimension(bodyPanel.getWidth(), userPanelHeight));
+        setPreferredSize(new Dimension(bodyPanelView.getWidth(), userPanelHeight));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 }

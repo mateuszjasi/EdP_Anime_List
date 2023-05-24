@@ -6,14 +6,14 @@ import org.example.panels.SearchPanel.SearchPanelView;
 
 public class UserPanelView extends UserPanelModel {
     public UserPanelView(BodyPanelView bodyPanel) {
-        this.bodyPanel = bodyPanel;
-        controller = new UserPanelController(this);
-        searchPanel = new SearchPanelView(this);
-        optionsPanel = new OptionsPanelView(this);
+        this.bodyPanelView = bodyPanel;
+        userPanelController = new UserPanelController(this);
+        searchPanelView = new SearchPanelView(this);
+        optionsPanelView = new OptionsPanelView(this);
 
         initPanel();
 
-        add(searchPanel);
-        add(optionsPanel);
+        add(searchPanelView);
+        add(optionsPanelView);
     }
 }
