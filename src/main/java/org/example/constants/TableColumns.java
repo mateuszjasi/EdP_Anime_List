@@ -1,6 +1,6 @@
 package org.example.constants;
 
-public class AnimeSearchWindowTableColumns {
+public class TableColumns {
     public static final String[] tableHeaders = new String[] {"Id", "Image", "Title", "Status", "Eps.", "Score"};
     public static final int idColumnID = 0;
     public static final int imageColumnID = 1;

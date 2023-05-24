@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.AnimeSearchFrame.AnimeSearchFrameView;
+import org.example.Frame.AnimeSearchFrameView;
 
 public class Main {
     public static void main(String[] args) {

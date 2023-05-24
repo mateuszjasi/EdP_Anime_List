@@ -1,6 +1,6 @@
 package org.example.utility;
 
-import static org.example.constants.AnimeSearchWindowTableColumns.idColumnID;
+import static org.example.constants.TableColumns.idColumnID;
 import static org.example.constants.Colors.colorLightGray;
 
 import java.awt.*;

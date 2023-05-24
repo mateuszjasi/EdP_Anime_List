@@ -17,11 +17,13 @@ public class SearchPanelController {
 
     public void searchAnime(ActionEvent e) {
         JButton searchButton = searchPanelView.getSearchButton();
-        String searchAnimeTextField = searchPanelView.getSearchAnimeTextField().getText();
-        if (e.getSource() == searchButton
-                && !(searchAnimeTextField.equals(idleSearchFieldText) || searchAnimeTextField.isEmpty())) {
-            userPanelController.setOffset(0);
-            userPanelController.searchAnime();
+        JTextField searchAnimeTextField = searchPanelView.getSearchAnimeTextField();
+        if (e.getSource() == searchButton || e.getSource() == searchAnimeTextField) {
+            if (!(searchAnimeTextField.getText().equals(idleSearchFieldText)
+                    || searchAnimeTextField.getText().isEmpty())) {
+                userPanelController.setOffset(0);
+                userPanelController.searchAnime();
+            }
         }
     }
 

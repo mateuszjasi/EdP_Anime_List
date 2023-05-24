@@ -1,7 +1,7 @@
 package org.example.panels.OptionsPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.buttonHeight;
-import static org.example.constants.AnimeSearchWindowResolutions.buttonWidth;
+import static org.example.constants.Resolutions.buttonHeight;
+import static org.example.constants.Resolutions.buttonWidth;
 import static org.example.constants.Colors.*;
 import static org.example.constants.Strings.myListIconPath;
 

@@ -1,6 +1,6 @@
 package org.example.panels.UserPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.userPanelHeight;
+import static org.example.constants.Resolutions.userPanelHeight;
 
 import java.awt.*;
 import javax.swing.*;

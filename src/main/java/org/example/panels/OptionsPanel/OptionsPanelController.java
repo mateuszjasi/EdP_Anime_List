@@ -1,6 +1,6 @@
 package org.example.panels.OptionsPanel;
 
-import static org.example.constants.AnimeSearchWindowTableColumns.*;
+import static org.example.constants.TableColumns.*;
 import static org.example.constants.Colors.colorLightGray;
 import static org.example.constants.Colors.colorTeal;
 

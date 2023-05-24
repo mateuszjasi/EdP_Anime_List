@@ -1,7 +1,7 @@
 package org.example.panels.ResultPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.*;
-import static org.example.constants.AnimeSearchWindowTableColumns.*;
+import static org.example.constants.Resolutions.*;
+import static org.example.constants.TableColumns.*;
 
 import java.awt.*;
 import javax.swing.*;

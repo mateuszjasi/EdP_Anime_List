@@ -1,7 +1,7 @@
-package org.example.AnimeSearchFrame;
+package org.example.Frame;
 
-import static org.example.constants.AnimeSearchWindowResolutions.*;
-import static org.example.constants.AnimeSearchWindowResolutions.mainWindowHeight;
+import static org.example.constants.Resolutions.*;
+import static org.example.constants.Resolutions.mainWindowHeight;
 
 import java.awt.*;
 import org.example.panels.BodyPanel.BodyPanelView;

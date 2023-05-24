@@ -1,6 +1,6 @@
 package org.example.panels.BodyPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.*;
+import static org.example.constants.Resolutions.*;
 
 import java.awt.*;
 import org.example.panels.ResultPanel.ResultPanelView;

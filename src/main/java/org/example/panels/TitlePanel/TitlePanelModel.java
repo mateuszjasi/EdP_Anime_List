@@ -1,7 +1,7 @@
 package org.example.panels.TitlePanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.*;
-import static org.example.constants.AnimeSearchWindowResolutions.marginWidth;
+import static org.example.constants.Resolutions.*;
+import static org.example.constants.Resolutions.marginWidth;
 import static org.example.constants.Colors.colorBlue;
 import static org.example.constants.Colors.colorWhite;
 import static org.example.constants.Fonts.titleFont;

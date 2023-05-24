@@ -1,9 +1,9 @@
 package org.example.panels.ResultPanel;
 
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageHeight;
-import static org.example.constants.AnimeSearchWindowResolutions.animeImageWidth;
-import static org.example.constants.AnimeSearchWindowTableColumns.idColumnID;
-import static org.example.constants.AnimeSearchWindowTableColumns.imageColumnID;
+import static org.example.constants.Resolutions.animeImageHeight;
+import static org.example.constants.Resolutions.animeImageWidth;
+import static org.example.constants.TableColumns.idColumnID;
+import static org.example.constants.TableColumns.imageColumnID;
 
 import java.awt.*;
 import java.net.URL;
