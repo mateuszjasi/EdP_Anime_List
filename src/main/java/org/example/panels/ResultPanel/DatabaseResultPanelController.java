@@ -3,6 +3,7 @@ package org.example.panels.ResultPanel;
 import static org.example.constants.DatabaseTableColumns.noteColumnId;
 import static org.example.constants.Resolutions.animeImageHeight;
 import static org.example.constants.Resolutions.animeImageWidth;
+import static org.example.constants.TableColumns.idColumnID;
 import static org.example.constants.TableColumns.imageColumnID;
 
 import java.awt.*;
@@ -22,7 +23,18 @@ public class DatabaseResultPanelController {
     private final DatabaseResultPanelView databaseResultPanelView;
 
     public void rowSelected() {
-        // do options panel first
+        OptionsPanelController optionsPanelController = databaseResultPanelView
+                .getBodyPanelView()
+                .getUserPanelView()
+                .getOptionsPanelView()
+                .getOptionsPanelController();
+        JTable resultTable = databaseResultPanelView.getResultTable();
+        if (!resultTable.getSelectionModel().isSelectionEmpty()) {
+            int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
+            optionsPanelController.enableChangeButtons(id);
+        } else {
+            optionsPanelController.disableChangeButtons();
+        }
     }
 
     public void columnValueChanged(FocusEvent e) {

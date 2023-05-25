@@ -19,6 +19,8 @@ public class OptionsPanelView extends OptionsPanelModel implements ActionListene
         addToWatchingButton = initButton(watchingIconPath);
         addToPlanToWatchButton = initButton(planToWatchIconPath);
         myListButton = initButton(myListIconPath);
+        changeProgressButton = initButton(changeProgressPath);
+        removeFromListButton = initButton(removeFromListPath);
 
         add(previousPageButton);
         add(addToWatchingButton);

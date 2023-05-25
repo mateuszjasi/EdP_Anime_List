@@ -26,7 +26,7 @@ public class ApiResultPanelController {
                 .getOptionsPanelView()
                 .getOptionsPanelController();
         JTable resultTable = apiResultPanelView.getResultTable();
-        if (!apiResultPanelView.getResultTable().getSelectionModel().isSelectionEmpty()) {
+        if (!resultTable.getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
             optionsPanelController.enableAddButtons(id);
         } else {

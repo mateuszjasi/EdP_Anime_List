@@ -17,7 +17,13 @@ import org.example.panels.UserPanel.UserPanelView;
 public abstract class OptionsPanelModel extends JPanel {
     protected UserPanelView userPanelView;
     protected OptionsPanelController optionsPanelController;
-    protected JButton nextPageButton, previousPageButton, addToWatchingButton, addToPlanToWatchButton, myListButton;
+    protected JButton nextPageButton,
+            previousPageButton,
+            addToWatchingButton,
+            addToPlanToWatchButton,
+            myListButton,
+            changeProgressButton,
+            removeFromListButton;
 
     protected void initOptionsPanel() {
         setPreferredSize(new Dimension(userPanelView.getWidth(), userPanelView.getHeight() / 2));

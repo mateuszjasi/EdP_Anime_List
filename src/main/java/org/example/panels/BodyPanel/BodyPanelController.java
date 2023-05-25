@@ -15,8 +15,8 @@ public class BodyPanelController {
     private final BodyPanelView bodyPanelView;
     private final MySqlConnection mySqlConnection = new MySqlConnection();
     private final List<Integer> myAnimeListIds = mySqlConnection.getMyAnimeListIds();
-    private int mySqlConnectionOffset;
-    private boolean dataFromApiMode = true;
+    public int mySqlConnectionOffset;
+    public boolean dataFromApiMode = true;
 
     public void changeMode() {
         if (dataFromApiMode) {
