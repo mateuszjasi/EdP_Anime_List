@@ -3,12 +3,14 @@ package org.example.panels.OptionsPanel;
 import static org.example.constants.ApiTableColumns.*;
 import static org.example.constants.Colors.colorLightGray;
 import static org.example.constants.Colors.colorTeal;
+import static org.example.constants.DatabaseTableColumns.progressColumnId;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.example.dialogs.ChangeProgressDialog;
 import org.example.model.Anime;
 import org.example.model.Status;
 import org.example.panels.BodyPanel.BodyPanelController;
@@ -130,7 +132,31 @@ public class OptionsPanelController {
     }
 
     private void changeProgressButtonClicked() {
-        System.out.println("bruh");
+        JTable resultTable = optionsPanelView
+                .getUserPanelView()
+                .getBodyPanelView()
+                .getDatabaseResultPanelView()
+                .getResultTable();
+        int selectedRow = resultTable.getSelectedRow();
+        if (selectedRow != -1) {
+            BodyPanelController bodyPanelController =
+                    optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
+            String[] progressValues = resultTable
+                    .getValueAt(selectedRow, progressColumnId)
+                    .toString()
+                    .split(" / ");
+            int progress = Integer.parseInt(progressValues[0]);
+            int progressMax = Integer.parseInt(progressValues[1]);
+            ChangeProgressDialog dialog =
+                    new ChangeProgressDialog((JFrame) optionsPanelView.getTopLevelAncestor(), progress, progressMax);
+            dialog.setVisible(true);
+            if (dialog.isConfirmed()) {
+                int id = Integer.parseInt((String) resultTable.getValueAt(selectedRow, idColumnID));
+                int newProgress = dialog.getNewProgress();
+                bodyPanelController.getMySqlConnection().updateProgress(id, newProgress);
+                bodyPanelController.searchAnimeDatabase();
+            }
+        }
     }
 
     private void removeFromListButtonClicked() {

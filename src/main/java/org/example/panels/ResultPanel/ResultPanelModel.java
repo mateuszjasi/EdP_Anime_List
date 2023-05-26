@@ -6,10 +6,13 @@ import static org.example.constants.Resolutions.*;
 
 import java.awt.*;
 import java.awt.event.FocusListener;
+import java.util.stream.IntStream;
 import javax.swing.*;
+import javax.swing.event.CellEditorListener;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import lombok.Getter;
+import org.example.model.Status;
 import org.example.panels.BodyPanel.BodyPanelView;
 import org.example.utility.ImageRenderer;
 import org.example.utility.TooltipTableCellRenderer;
@@ -46,17 +49,25 @@ public abstract class ResultPanelModel extends JPanel {
         tableModel = new DefaultTableModel(null, databaseTableHeaders) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == scoreColumnID || column == noteColumnId;
+                return column == scoreColumnID || column == noteColumnId || column == statusColumnID;
             }
         };
+        DefaultCellEditor statusEditor = new DefaultCellEditor(new JComboBox<>(
+                new Status[] {Status.watching, Status.on_hold, Status.completed, Status.dropped, Status.plan_to_watch
+                }));
+        statusEditor.addCellEditorListener((CellEditorListener) this);
+        DefaultCellEditor scoreEditor = new DefaultCellEditor(
+                new JComboBox<>(IntStream.rangeClosed(0, 10).boxed().toArray(Integer[]::new)));
+        scoreEditor.addCellEditorListener((CellEditorListener) this);
         initScrollResultTablePane();
-        resultTable.putClientProperty("terminateEditOnFocusLost", true);
         resultTable.addFocusListener((FocusListener) this);
         resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(450);
         resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(60);
         resultTable.getColumnModel().getColumn(scoreColumnID).setMinWidth(30);
+        resultTable.getColumnModel().getColumn(scoreColumnID).setCellEditor(scoreEditor);
         resultTable.getColumnModel().getColumn(progressColumnId).setMinWidth(30);
         resultTable.getColumnModel().getColumn(noteColumnId).setMinWidth(150);
+        resultTable.getColumnModel().getColumn(statusColumnID).setCellEditor(statusEditor);
     }
 
     private void initScrollResultTablePane() {

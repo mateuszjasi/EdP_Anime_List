@@ -5,8 +5,6 @@ import static org.example.constants.Resolutions.*;
 import static org.example.constants.Resolutions.marginHeight;
 
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.*;
 import lombok.Getter;
 import org.example.panels.ResultPanel.ApiResultPanelView;
@@ -30,14 +28,6 @@ public abstract class BodyPanelModel extends JPanel {
         setPreferredSize(new Dimension(
                 mainWindowWidth - marginWidth * 2, mainWindowHeight - titlePanelView.getHeight() - marginHeight));
         setLayout(new BorderLayout());
-        WindowAdapter windowAdapter = new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                bodyPanelController.getMySqlConnection().closeConnection();
-            }
-        };
-        JFrame frame = (JFrame) getTopLevelAncestor();
-        frame.addWindowListener(windowAdapter);
     }
 
     protected JPanel initInsideMargin(int width, int height) {

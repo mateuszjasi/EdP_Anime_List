@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="WIP: database management">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/change_progress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/graphic/remove_from_list.png" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dialogs/ChangeProgressDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53/storage_v2/_src_/schema/myanimelist.5mr2Hg.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5845a6a2-9831-405c-be70-c04899131f53/storage_v2/_src_/schema/myanimelist.5mr2Hg.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Strings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ApiResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ApiResultPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +278,9 @@
       <workItem from="1684919475646" duration="2331000" />
       <workItem from="1684923744729" duration="945000" />
       <workItem from="1684943428719" duration="12552000" />
-      <workItem from="1685041514711" duration="6142000" />
+      <workItem from="1685041514711" duration="6843000" />
+      <workItem from="1685109298390" duration="598000" />
+      <workItem from="1685114311716" duration="11649000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -382,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684957546096</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added button to remove data from database">
+      <created>1685047946567</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685047946567</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +426,9 @@
     <MESSAGE value="File names refactor" />
     <MESSAGE value="Just spotlessApply" />
     <MESSAGE value="WIP: database management" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: database management" />
+    <MESSAGE value="Added button to remove data from database" />
+    <MESSAGE value="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

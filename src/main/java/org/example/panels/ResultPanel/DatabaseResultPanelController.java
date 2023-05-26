@@ -1,10 +1,10 @@
 package org.example.panels.ResultPanel;
 
 import static org.example.constants.DatabaseTableColumns.noteColumnId;
+import static org.example.constants.DatabaseTableColumns.scoreColumnID;
 import static org.example.constants.Resolutions.animeImageHeight;
 import static org.example.constants.Resolutions.animeImageWidth;
-import static org.example.constants.TableColumns.idColumnID;
-import static org.example.constants.TableColumns.imageColumnID;
+import static org.example.constants.TableColumns.*;
 
 import java.awt.*;
 import java.awt.event.FocusEvent;
@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.MyAnime;
+import org.example.model.Status;
 import org.example.panels.OptionsPanel.OptionsPanelController;
 import org.example.service.MySqlConnection;
 
@@ -37,7 +38,7 @@ public class DatabaseResultPanelController {
         }
     }
 
-    public void columnValueChanged(FocusEvent e) {
+    public void noteChanged(FocusEvent e) {
         JTable table = databaseResultPanelView.getResultTable();
         if (e.getSource() != table) return;
         int selectedColumn = table.getSelectedColumn();
@@ -82,5 +83,23 @@ public class DatabaseResultPanelController {
             resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
         }
         optionsPanelController.enableNextPageButton(animeList.size());
+    }
+
+    public void listColumnChanged() {
+        MySqlConnection mySqlConnection = databaseResultPanelView
+                .getBodyPanelView()
+                .getBodyPanelController()
+                .getMySqlConnection();
+        JTable resultTable = databaseResultPanelView.getResultTable();
+        int selectedRow = resultTable.getSelectedRow();
+        int selectedColumn = resultTable.getSelectedColumn();
+        int id = Integer.parseInt((String) resultTable.getValueAt(selectedRow, idColumnID));
+        if (selectedColumn == statusColumnID) {
+            Status status = (Status) resultTable.getValueAt(selectedRow, statusColumnID);
+            mySqlConnection.updateStatus(id, status);
+        } else if (selectedColumn == scoreColumnID) {
+            int score = (int) resultTable.getValueAt(selectedRow, scoreColumnID);
+            mySqlConnection.updateScore(id, score);
+        }
     }
 }

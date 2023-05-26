@@ -15,8 +15,8 @@ public class AnimeSearchFrameView extends AnimeSearchFrameModel {
         marginPanel2 = initMarginPanel(mainWindowWidth, marginHeight);
         marginPanel3 = initMarginPanel(marginWidth, mainWindowHeight);
 
-        TitlePanelView titlePanel = new TitlePanelView();
-        BodyPanelView bodyPanel = new BodyPanelView(titlePanel);
+        titlePanel = new TitlePanelView();
+        bodyPanel = new BodyPanelView(titlePanel);
 
         add(marginPanel1, BorderLayout.WEST);
         add(marginPanel2, BorderLayout.SOUTH);

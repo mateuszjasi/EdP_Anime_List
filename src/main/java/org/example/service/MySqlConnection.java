@@ -21,7 +21,7 @@ public class MySqlConnection {
     @SneakyThrows
     public List<MyAnime> getMyAnimeList(String title, int offset) {
         List<MyAnime> myAnimeList = new ArrayList<>();
-        String query = "SELECT * FROM animelistdata WHERE title LIKE ? ORDER BY title ASC LIMIT 10 OFFSET ?";
+        String query = "SELECT * FROM animelistdata WHERE title LIKE ? ORDER BY status DESC, title LIMIT 10 OFFSET ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, "%" + title + "%");
         preparedStatement.setInt(2, offset);
@@ -82,6 +82,16 @@ public class MySqlConnection {
         String query = "UPDATE animelistdata SET note = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, note);
+        preparedStatement.setInt(2, id);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    @SneakyThrows
+    public void updateStatus(int id, Status status) {
+        String query = "UPDATE animelistdata SET status = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, status.name());
         preparedStatement.setInt(2, id);
         preparedStatement.executeUpdate();
         preparedStatement.close();

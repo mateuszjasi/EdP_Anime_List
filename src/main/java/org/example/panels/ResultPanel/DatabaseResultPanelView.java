@@ -6,7 +6,8 @@ import java.awt.event.FocusListener;
 import javax.swing.event.*;
 import org.example.panels.BodyPanel.BodyPanelView;
 
-public class DatabaseResultPanelView extends ResultPanelModel implements ListSelectionListener, FocusListener {
+public class DatabaseResultPanelView extends ResultPanelModel
+        implements ListSelectionListener, FocusListener, CellEditorListener {
     public DatabaseResultPanelView(BodyPanelView bodyPanel) {
         this.bodyPanelView = bodyPanel;
         this.databaseResultPanelController = new DatabaseResultPanelController(this);
@@ -24,9 +25,17 @@ public class DatabaseResultPanelView extends ResultPanelModel implements ListSel
 
     @Override
     public void focusGained(FocusEvent e) {
-        databaseResultPanelController.columnValueChanged(e);
+        databaseResultPanelController.noteChanged(e);
     }
 
     @Override
     public void focusLost(FocusEvent e) {}
+
+    @Override
+    public void editingStopped(ChangeEvent e) {
+        databaseResultPanelController.listColumnChanged();
+    }
+
+    @Override
+    public void editingCanceled(ChangeEvent e) {}
 }
