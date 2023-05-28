@@ -20,8 +20,12 @@ public enum Status {
         return string;
     }
 
-    @Override
-    public String toString() {
-        return string;
+    public static Status fromString(String statusString) {
+        for (Status status : Status.values()) {
+            if (status.getString().equalsIgnoreCase(statusString)) {
+                return status;
+            }
+        }
+        return null;
     }
 }

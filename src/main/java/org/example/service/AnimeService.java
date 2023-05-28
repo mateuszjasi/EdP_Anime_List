@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
 import org.example.model.Status;
-import org.example.panels.SearchPanel.SearchPanelController;
+import org.example.panel.SearchPanel.SearchPanelController;
 
 @RequiredArgsConstructor
 public class AnimeService {
