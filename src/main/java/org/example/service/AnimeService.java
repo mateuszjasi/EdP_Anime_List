@@ -33,18 +33,15 @@ public class AnimeService {
     }
 
     @SneakyThrows
-    public List<Integer> getAnimeIds(String title, int offset) {
+    public List<Integer> getAnimeIds(String title, int offset, int limit) {
         String encodedTitle = URLEncoder.encode(title, StandardCharsets.UTF_8);
-        String response =
-                getResponse(URL + "?offset=" + offset + "&q=" + encodedTitle).body();
-
+        String response = getResponse(URL + "?offset=" + offset + "&limit=" + limit + "&q=" + encodedTitle)
+                .body();
         JsonObject jsonObject = new Gson().fromJson(response, JsonObject.class);
-
         if (jsonObject.has("error")) {
             return Collections.emptyList();
         } else {
             JsonArray jsonArray = jsonObject.get("data").getAsJsonArray();
-
             return IntStream.range(0, jsonArray.size())
                     .mapToObj(i -> jsonArray
                             .get(i)
@@ -58,7 +55,11 @@ public class AnimeService {
     }
 
     public List<Anime> getAnimeFromTitle(String title, int offset) {
-        List<Integer> list = getAnimeIds(title, offset);
+        return getAnimeFromTitle(title, offset, 10);
+    }
+
+    public List<Anime> getAnimeFromTitle(String title, int offset, int limit) {
+        List<Integer> list = getAnimeIds(title, offset, limit);
         List<Anime> animeList = new ArrayList<>();
 
         for (Integer id : list) {

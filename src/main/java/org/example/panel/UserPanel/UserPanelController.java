@@ -32,9 +32,13 @@ public class UserPanelController {
             @SneakyThrows
             protected void done() {
                 List<Anime> animeList = get();
-                Controllers.apiResultPanelController.addDataToTable(animeList);
                 searchPanelController.stopProgressBar();
                 optionsPanelController.enableButtons();
+                optionsPanelController.enableNextPageButton(animeList.size() >= 10
+                        && !animeService
+                                .getAnimeFromTitle(animeTitle, offset + 10, 1)
+                                .isEmpty());
+                Controllers.apiResultPanelController.addDataToTable(animeList);
             }
         };
         searchPanelController.startProgressBar();

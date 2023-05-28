@@ -33,7 +33,6 @@ public class ApiResultPanelController {
 
     @SneakyThrows
     public void addDataToTable(List<Anime> animeList) {
-        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         DefaultTableModel tableModel = apiResultPanelView.getTableModel();
         JTable resultTable = apiResultPanelView.getResultTable();
         // change color of anime row in database - Problem: can't highlight selected row
@@ -57,6 +56,5 @@ public class ApiResultPanelController {
                     image.getImage().getScaledInstance(animeImageWidth, animeImageHeight, Image.SCALE_DEFAULT);
             resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
         }
-        optionsPanelController.enableNextPageButton(animeList.size());
     }
 }

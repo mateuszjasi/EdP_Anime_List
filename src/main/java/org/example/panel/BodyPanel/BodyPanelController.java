@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.example.model.Controllers;
+import org.example.model.MyAnime;
 import org.example.model.Views;
+import org.example.panel.OptionsPanel.OptionsPanelController;
 import org.example.panel.ResultPanel.ApiResultPanelView;
 import org.example.panel.ResultPanel.DatabaseResultPanelView;
 import org.example.service.MySqlConnection;
@@ -39,10 +41,15 @@ public class BodyPanelController {
     }
 
     public void searchAnimeDatabase() {
+        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         String title = Controllers.searchPanelController.getDatabaseSearchTitle();
         if (title.equals("Search Anime...")) title = "";
-        Controllers.databaseResultPanelController.addDataToTable(
-                mySqlConnection.getMyAnimeList(title, mySqlConnectionOffset));
+        List<MyAnime> animeList = mySqlConnection.getMyAnimeList(title, mySqlConnectionOffset);
+        optionsPanelController.enableNextPageButton(animeList.size() >= 10
+                && !mySqlConnection
+                        .getMyAnimeList(title, mySqlConnectionOffset + 10, 1)
+                        .isEmpty());
+        Controllers.databaseResultPanelController.addDataToTable(animeList);
     }
 
     public void removeAnime(int removedId) {

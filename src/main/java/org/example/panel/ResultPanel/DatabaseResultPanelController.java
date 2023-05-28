@@ -54,7 +54,6 @@ public class DatabaseResultPanelController {
 
     @SneakyThrows
     public void addDataToTable(List<MyAnime> animeList) {
-        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         DefaultTableModel tableModel = databaseResultPanelView.getTableModel();
         JTable resultTable = databaseResultPanelView.getResultTable();
         tableModel.setRowCount(0);
@@ -75,7 +74,6 @@ public class DatabaseResultPanelController {
                     image.getImage().getScaledInstance(animeImageWidth, animeImageHeight, Image.SCALE_DEFAULT);
             resultTable.setValueAt(new ImageIcon(scaledImage), i, imageColumnID);
         }
-        optionsPanelController.enableNextPageButton(animeList.size());
     }
 
     public void listColumnChanged() {

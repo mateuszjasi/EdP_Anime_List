@@ -98,7 +98,6 @@ public class OptionsPanelController {
 
     private void changeModeButtonClicked() {
         BodyPanelController bodyPanelController = Controllers.bodyPanelController;
-        UserPanelController userPanelController = Controllers.userPanelController;
         JButton addToWatchingButton = optionsPanelView.getAddToWatchingButton();
         JButton addToPlanToWatchButton = optionsPanelView.getAddToPlanToWatchButton();
         JButton changeProgressButton = optionsPanelView.getChangeProgressButton();
@@ -116,7 +115,7 @@ public class OptionsPanelController {
             optionsPanelView.add(addToWatchingButton, 1);
             optionsPanelView.add(addToPlanToWatchButton, 2);
             nextPageButton.setEnabled(nextButtonStatus);
-            optionsPanelView.getPreviousPageButton().setEnabled(userPanelController.getOffset() > 0);
+            optionsPanelView.getPreviousPageButton().setEnabled(Controllers.userPanelController.getOffset() > 0);
         }
         bodyPanelController.changeMode();
     }
@@ -154,8 +153,8 @@ public class OptionsPanelController {
         }
     }
 
-    public void enableNextPageButton(int animeListSize) {
-        optionsPanelView.getNextPageButton().setEnabled(animeListSize >= 10);
+    public void enableNextPageButton(boolean enable) {
+        optionsPanelView.getNextPageButton().setEnabled(enable);
     }
 
     public void setButtonsColor(ChangeEvent e) {

@@ -18,13 +18,18 @@ public class MySqlConnection {
         connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 
-    @SneakyThrows
     public List<MyAnime> getMyAnimeList(String title, int offset) {
+        return getMyAnimeList(title, offset, 10);
+    }
+
+    @SneakyThrows
+    public List<MyAnime> getMyAnimeList(String title, int offset, int limit) {
         List<MyAnime> myAnimeList = new ArrayList<>();
-        String query = "SELECT * FROM animelistdata WHERE title LIKE ? ORDER BY status DESC, title LIMIT 10 OFFSET ?";
+        String query = "SELECT * FROM animelistdata WHERE title LIKE ? ORDER BY status DESC, title LIMIT ? OFFSET ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, "%" + title + "%");
-        preparedStatement.setInt(2, offset);
+        preparedStatement.setInt(2, limit);
+        preparedStatement.setInt(3, offset);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             MyAnime myAnime = MyAnime.builder()
