@@ -12,7 +12,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.example.dialog.ChangeProgressDialog;
 import org.example.model.Anime;
+import org.example.model.Controllers;
 import org.example.model.Status;
+import org.example.model.Views;
 import org.example.panel.BodyPanel.BodyPanelController;
 import org.example.panel.UserPanel.UserPanelController;
 
@@ -24,45 +26,32 @@ public class OptionsPanelController {
     private boolean nextButtonStatus;
 
     public void buttonClicked(ActionEvent e) {
-        JButton nextPageButton = optionsPanelView.getNextPageButton();
-        JButton previousPageButton = optionsPanelView.getPreviousPageButton();
-        JButton addToWatchingButton = optionsPanelView.getAddToWatchingButton();
-        JButton addToPlanToWatchButton = optionsPanelView.getAddToPlanToWatchButton();
-        JButton myListButton = optionsPanelView.getMyListButton();
-        JButton changeProgressButton = optionsPanelView.getChangeProgressButton();
-        JButton removeFromListButton = optionsPanelView.getRemoveFromListButton();
-        if (e.getSource() == nextPageButton || e.getSource() == previousPageButton) {
+        if (e.getSource() == optionsPanelView.getNextPageButton()
+                || e.getSource() == optionsPanelView.getPreviousPageButton()) {
             pagingButtonClicked(e);
-        }
-        if (e.getSource() == addToWatchingButton || e.getSource() == addToPlanToWatchButton) {
+        } else if (e.getSource() == optionsPanelView.getAddToWatchingButton()
+                || e.getSource() == optionsPanelView.getAddToPlanToWatchButton()) {
             addToDatabaseButtonClicked(e);
-        }
-        if (e.getSource() == myListButton) {
+        } else if (e.getSource() == optionsPanelView.getMyListButton()) {
             changeModeButtonClicked();
-        }
-        if (e.getSource() == changeProgressButton) {
+        } else if (e.getSource() == optionsPanelView.getChangeProgressButton()) {
             changeProgressButtonClicked();
-        }
-        if (e.getSource() == removeFromListButton) {
+        } else if (e.getSource() == optionsPanelView.getRemoveFromListButton()) {
             removeFromListButtonClicked();
         }
     }
 
     private void pagingButtonClicked(ActionEvent e) {
-        JButton nextPageButton = optionsPanelView.getNextPageButton();
-        JButton previousPageButton = optionsPanelView.getPreviousPageButton();
-        UserPanelController userPanelController =
-                optionsPanelView.getUserPanelView().getUserPanelController();
-        BodyPanelController bodyPanelController =
-                optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
+        UserPanelController userPanelController = Controllers.userPanelController;
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
         boolean isDataFromApiMode = bodyPanelController.isDataFromApiMode();
-        if (e.getSource() == nextPageButton) {
+        if (e.getSource() == optionsPanelView.getNextPageButton()) {
             if (isDataFromApiMode) {
                 userPanelController.setOffset(userPanelController.getOffset() + 10);
             } else {
                 bodyPanelController.setMySqlConnectionOffset(bodyPanelController.getMySqlConnectionOffset() + 10);
             }
-        } else {
+        } else if (e.getSource() == optionsPanelView.getPreviousPageButton()) {
             if (isDataFromApiMode) {
                 userPanelController.setOffset(userPanelController.getOffset() - 10);
             } else {
@@ -71,7 +60,7 @@ public class OptionsPanelController {
         }
         int offset =
                 isDataFromApiMode ? userPanelController.getOffset() : bodyPanelController.getMySqlConnectionOffset();
-        previousPageButton.setEnabled(offset > 0);
+        optionsPanelView.getPreviousPageButton().setEnabled(offset > 0);
         if (isDataFromApiMode) {
             userPanelController.searchAnime();
         } else {
@@ -81,14 +70,9 @@ public class OptionsPanelController {
 
     private void addToDatabaseButtonClicked(ActionEvent e) {
         JButton addToWatchingButton = optionsPanelView.getAddToWatchingButton();
-        JButton addToPlanToWatchButton = optionsPanelView.getAddToPlanToWatchButton();
+        optionsPanelView.getAddToPlanToWatchButton().setEnabled(false);
         addToWatchingButton.setEnabled(false);
-        addToPlanToWatchButton.setEnabled(false);
-        JTable resultTable = optionsPanelView
-                .getUserPanelView()
-                .getBodyPanelView()
-                .getApiResultPanelView()
-                .getResultTable();
+        JTable resultTable = Views.apiResultPanelView.getResultTable();
         int selectedRow = resultTable.getSelectedRow();
         if (selectedRow != -1) {
             BodyPanelController bodyPanelController =
@@ -113,16 +97,13 @@ public class OptionsPanelController {
     }
 
     private void changeModeButtonClicked() {
-        BodyPanelController bodyPanelController =
-                optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
-        UserPanelController userPanelController =
-                optionsPanelView.getUserPanelView().getUserPanelController();
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
+        UserPanelController userPanelController = Controllers.userPanelController;
         JButton addToWatchingButton = optionsPanelView.getAddToWatchingButton();
         JButton addToPlanToWatchButton = optionsPanelView.getAddToPlanToWatchButton();
         JButton changeProgressButton = optionsPanelView.getChangeProgressButton();
         JButton removeFromListButton = optionsPanelView.getRemoveFromListButton();
         JButton nextPageButton = optionsPanelView.getNextPageButton();
-        JButton previousPageButton = optionsPanelView.getPreviousPageButton();
         if (bodyPanelController.isDataFromApiMode()) {
             optionsPanelView.remove(addToWatchingButton);
             optionsPanelView.remove(addToPlanToWatchButton);
@@ -135,21 +116,16 @@ public class OptionsPanelController {
             optionsPanelView.add(addToWatchingButton, 1);
             optionsPanelView.add(addToPlanToWatchButton, 2);
             nextPageButton.setEnabled(nextButtonStatus);
-            previousPageButton.setEnabled(userPanelController.getOffset() > 0);
+            optionsPanelView.getPreviousPageButton().setEnabled(userPanelController.getOffset() > 0);
         }
         bodyPanelController.changeMode();
     }
 
     private void changeProgressButtonClicked() {
-        JTable resultTable = optionsPanelView
-                .getUserPanelView()
-                .getBodyPanelView()
-                .getDatabaseResultPanelView()
-                .getResultTable();
+        JTable resultTable = Views.databaseResultPanelView.getResultTable();
         int selectedRow = resultTable.getSelectedRow();
         if (selectedRow != -1) {
-            BodyPanelController bodyPanelController =
-                    optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
+            BodyPanelController bodyPanelController = Controllers.bodyPanelController;
             String[] progressValues = resultTable
                     .getValueAt(selectedRow, progressColumnId)
                     .toString()
@@ -169,13 +145,8 @@ public class OptionsPanelController {
     }
 
     private void removeFromListButtonClicked() {
-        BodyPanelController bodyPanelController =
-                optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
-        JTable resultTable = optionsPanelView
-                .getUserPanelView()
-                .getBodyPanelView()
-                .getDatabaseResultPanelView()
-                .getResultTable();
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
+        JTable resultTable = Views.databaseResultPanelView.getResultTable();
         int selectedRow = resultTable.getSelectedRow();
         if (selectedRow != -1) {
             int removedId = Integer.parseInt((String) resultTable.getValueAt(selectedRow, idColumnID));
@@ -193,8 +164,7 @@ public class OptionsPanelController {
     }
 
     public void enableAddButtons(int id) {
-        BodyPanelController bodyPanelController =
-                optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
         if (!searching) {
             if (!bodyPanelController.getMyAnimeListIds().contains(id)) {
                 optionsPanelView.getAddToPlanToWatchButton().setEnabled(true);
@@ -212,8 +182,7 @@ public class OptionsPanelController {
 
     public void enableButtons() {
         searching = false;
-        UserPanelController userPanelController =
-                optionsPanelView.getUserPanelView().getUserPanelController();
+        UserPanelController userPanelController = Controllers.userPanelController;
         optionsPanelView.getPreviousPageButton().setEnabled(userPanelController.getOffset() > 0);
         optionsPanelView.getMyListButton().setEnabled(true);
     }
@@ -228,8 +197,7 @@ public class OptionsPanelController {
     }
 
     public void enableChangeButtons(int id) {
-        BodyPanelController bodyPanelController =
-                optionsPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
         if (bodyPanelController.getMyAnimeListIds().contains(id)) {
             optionsPanelView.getChangeProgressButton().setEnabled(true);
             optionsPanelView.getRemoveFromListButton().setEnabled(true);

@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.example.model.Controllers;
 import org.example.model.MyAnime;
 import org.example.model.Status;
 import org.example.panel.OptionsPanel.OptionsPanelController;
@@ -25,11 +26,7 @@ public class DatabaseResultPanelController {
     private final DatabaseResultPanelView databaseResultPanelView;
 
     public void rowSelected() {
-        OptionsPanelController optionsPanelController = databaseResultPanelView
-                .getBodyPanelView()
-                .getUserPanelView()
-                .getOptionsPanelView()
-                .getOptionsPanelController();
+        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         JTable resultTable = databaseResultPanelView.getResultTable();
         if (!resultTable.getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
@@ -41,28 +38,23 @@ public class DatabaseResultPanelController {
 
     public void noteChanged(FocusEvent e) {
         JTable table = databaseResultPanelView.getResultTable();
-        if (e.getSource() != table) return;
-        int selectedColumn = table.getSelectedColumn();
-        int selectedRow = table.getSelectedRow();
-        MySqlConnection mySqlConnection = databaseResultPanelView
-                .getBodyPanelView()
-                .getBodyPanelController()
-                .getMySqlConnection();
-        if (selectedRow != -1) {
-            if (selectedColumn == noteColumnId) {
-                mySqlConnection.updateNote(Integer.parseInt((String) table.getValueAt(selectedRow, 0)), (String)
-                        table.getValueAt(selectedRow, selectedColumn));
+        if (e.getSource() == table) {
+            int selectedColumn = table.getSelectedColumn();
+            int selectedRow = table.getSelectedRow();
+            if (selectedRow != -1) {
+                if (selectedColumn == noteColumnId) {
+                    Controllers.bodyPanelController
+                            .getMySqlConnection()
+                            .updateNote(Integer.parseInt((String) table.getValueAt(selectedRow, 0)), (String)
+                                    table.getValueAt(selectedRow, selectedColumn));
+                }
             }
         }
     }
 
     @SneakyThrows
     public void addDataToTable(List<MyAnime> animeList) {
-        OptionsPanelController optionsPanelController = databaseResultPanelView
-                .getBodyPanelView()
-                .getUserPanelView()
-                .getOptionsPanelView()
-                .getOptionsPanelController();
+        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         DefaultTableModel tableModel = databaseResultPanelView.getTableModel();
         JTable resultTable = databaseResultPanelView.getResultTable();
         tableModel.setRowCount(0);
@@ -87,10 +79,7 @@ public class DatabaseResultPanelController {
     }
 
     public void listColumnChanged() {
-        MySqlConnection mySqlConnection = databaseResultPanelView
-                .getBodyPanelView()
-                .getBodyPanelController()
-                .getMySqlConnection();
+        MySqlConnection mySqlConnection = Controllers.bodyPanelController.getMySqlConnection();
         JTable resultTable = databaseResultPanelView.getResultTable();
         int selectedRow = resultTable.getSelectedRow();
         if (selectedRow >= 0) {

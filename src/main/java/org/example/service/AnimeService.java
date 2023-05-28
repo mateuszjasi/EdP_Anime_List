@@ -15,8 +15,8 @@ import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
+import org.example.model.Controllers;
 import org.example.model.Status;
-import org.example.panel.SearchPanel.SearchPanelController;
 
 @RequiredArgsConstructor
 public class AnimeService {
@@ -57,7 +57,7 @@ public class AnimeService {
         }
     }
 
-    public List<Anime> getAnimeFromTitle(String title, int offset, SearchPanelController controller) {
+    public List<Anime> getAnimeFromTitle(String title, int offset) {
         List<Integer> list = getAnimeIds(title, offset);
         List<Anime> animeList = new ArrayList<>();
 
@@ -85,7 +85,7 @@ public class AnimeService {
                                     : "?")
                     .build();
             animeList.add(anime);
-            controller.updateProgressBar();
+            Controllers.searchPanelController.updateProgressBar();
         }
 
         return animeList;

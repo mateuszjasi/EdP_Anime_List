@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.event.*;
+import org.example.model.Controllers;
+import org.example.model.Views;
 import org.example.panel.BodyPanel.BodyPanelView;
 
 public class DatabaseResultPanelView extends ResultPanelModel
@@ -11,6 +13,8 @@ public class DatabaseResultPanelView extends ResultPanelModel
     public DatabaseResultPanelView(BodyPanelView bodyPanel) {
         this.bodyPanelView = bodyPanel;
         this.databaseResultPanelController = new DatabaseResultPanelController(this);
+        Views.databaseResultPanelView = this;
+        Controllers.databaseResultPanelController = databaseResultPanelController;
 
         initResultPanel();
         initScrollDatabaseResultTablePane();

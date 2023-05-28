@@ -3,6 +3,8 @@ package org.example.panel.BodyPanel;
 import static org.example.constants.Resolutions.*;
 
 import java.awt.*;
+import org.example.model.Controllers;
+import org.example.model.Views;
 import org.example.panel.ResultPanel.ApiResultPanelView;
 import org.example.panel.ResultPanel.DatabaseResultPanelView;
 import org.example.panel.TitlePanel.TitlePanelView;
@@ -12,6 +14,8 @@ public class BodyPanelView extends BodyPanelModel {
     public BodyPanelView(TitlePanelView titlePanel) {
         this.titlePanelView = titlePanel;
         bodyPanelController = new BodyPanelController(this);
+        Views.bodyPanelView = this;
+        Controllers.bodyPanelController = bodyPanelController;
 
         initBodyPanel();
         insideMarginPanel1 = initInsideMargin(marginWidth * 2, getHeight());

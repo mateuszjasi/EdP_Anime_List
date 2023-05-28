@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.example.model.Controllers;
 import org.example.panel.BodyPanel.BodyPanelController;
 import org.example.panel.UserPanel.UserPanelController;
 
@@ -20,13 +21,10 @@ public class SearchPanelController {
     private String databaseSearchTitle = "";
 
     public void searchAnime(ActionEvent e) {
-        UserPanelController userPanelController =
-                searchPanelView.getUserPanelView().getUserPanelController();
-        BodyPanelController bodyPanelController =
-                searchPanelView.getUserPanelView().getBodyPanelView().getBodyPanelController();
-        JButton searchButton = searchPanelView.getSearchButton();
+        UserPanelController userPanelController = Controllers.userPanelController;
+        BodyPanelController bodyPanelController = Controllers.bodyPanelController;
         JTextField searchAnimeTextField = searchPanelView.getSearchAnimeTextField();
-        if (e.getSource() == searchButton || e.getSource() == searchAnimeTextField) {
+        if (e.getSource() == searchPanelView.getSearchButton() || e.getSource() == searchAnimeTextField) {
             if (!bodyPanelController.isDataFromApiMode()) {
                 databaseSearchTitle = searchAnimeTextField.getText();
                 bodyPanelController.setMySqlConnectionOffset(0);

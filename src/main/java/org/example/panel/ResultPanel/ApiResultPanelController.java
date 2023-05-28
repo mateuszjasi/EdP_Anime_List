@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
+import org.example.model.Controllers;
 import org.example.panel.OptionsPanel.OptionsPanelController;
 
 @RequiredArgsConstructor
@@ -20,11 +21,7 @@ public class ApiResultPanelController {
     private final ApiResultPanelView apiResultPanelView;
 
     public void rowSelected() {
-        OptionsPanelController optionsPanelController = apiResultPanelView
-                .getBodyPanelView()
-                .getUserPanelView()
-                .getOptionsPanelView()
-                .getOptionsPanelController();
+        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         JTable resultTable = apiResultPanelView.getResultTable();
         if (!resultTable.getSelectionModel().isSelectionEmpty()) {
             int id = Integer.parseInt((String) resultTable.getValueAt(resultTable.getSelectedRow(), idColumnID));
@@ -36,11 +33,7 @@ public class ApiResultPanelController {
 
     @SneakyThrows
     public void addDataToTable(List<Anime> animeList) {
-        OptionsPanelController optionsPanelController = apiResultPanelView
-                .getBodyPanelView()
-                .getUserPanelView()
-                .getOptionsPanelView()
-                .getOptionsPanelController();
+        OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         DefaultTableModel tableModel = apiResultPanelView.getTableModel();
         JTable resultTable = apiResultPanelView.getResultTable();
         // change color of anime row in database - Problem: can't highlight selected row

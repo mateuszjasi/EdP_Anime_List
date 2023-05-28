@@ -4,39 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes">
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Controllers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Views.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frame/AnimeSearchFrameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Frame/AnimeSearchFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frame/AnimeSearchFrameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/constants/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/constants/Colors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dialogs/ChangeProgressDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dialog/ChangeProgressDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Anime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Anime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/MyAnime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MyAnime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/BodyPanel/BodyPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ApiResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ApiResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/DatabaseResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/ResultPanel/ResultPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ResultPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/TitlePanel/TitlePanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/TitlePanel/TitlePanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/TitlePanel/TitlePanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panels/UserPanel/UserPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/BodyPanel/BodyPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/TitlePanel/TitlePanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/TitlePanel/TitlePanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/UserPanel/UserPanelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/AddedAnimeRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/render/AddedAnimeRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/ImageRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/render/ImageRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utility/TooltipTableCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/render/TooltipTableCellRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +139,7 @@
       <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.EdP_Anime_List [spotlessApply]">
     <configuration name="JTableExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JTableExamples" />
       <module name="EdP_Anime_List.main" />
@@ -299,7 +284,8 @@
       <workItem from="1685041514711" duration="6843000" />
       <workItem from="1685109298390" duration="598000" />
       <workItem from="1685114311716" duration="11709000" />
-      <workItem from="1685280148473" duration="8058000" />
+      <workItem from="1685280148473" duration="8222000" />
+      <workItem from="1685295482233" duration="3096000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -420,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685126295934</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Code clean-up, bug fixes:&#10;- paging arrows&#10;- searching &#10;- adding objects to database">
+      <created>1685292151854</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685292151854</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +447,8 @@
     <MESSAGE value="WIP: database management" />
     <MESSAGE value="Added button to remove data from database" />
     <MESSAGE value="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button to change progress, JDialog to get progress, changed score and status columns to ComboBoxes" />
+    <MESSAGE value="Code clean-up, bug fixes:&#10;- paging arrows&#10;- searching &#10;- adding objects to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code clean-up, bug fixes:&#10;- paging arrows&#10;- searching &#10;- adding objects to database" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

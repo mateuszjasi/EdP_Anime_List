@@ -5,8 +5,9 @@ import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.example.model.Controllers;
+import org.example.model.Views;
 import org.example.panel.ResultPanel.ApiResultPanelView;
-import org.example.panel.ResultPanel.DatabaseResultPanelController;
 import org.example.panel.ResultPanel.DatabaseResultPanelView;
 import org.example.service.MySqlConnection;
 
@@ -21,8 +22,8 @@ public class BodyPanelController {
     public boolean dataFromApiMode = true;
 
     public void changeMode() {
-        DatabaseResultPanelView databaseResultPanelView = bodyPanelView.getDatabaseResultPanelView();
-        ApiResultPanelView apiResultPanelView = bodyPanelView.getApiResultPanelView();
+        ApiResultPanelView apiResultPanelView = Views.apiResultPanelView;
+        DatabaseResultPanelView databaseResultPanelView = Views.databaseResultPanelView;
         if (dataFromApiMode) {
             dataFromApiMode = false;
             bodyPanelView.remove(apiResultPanelView);
@@ -38,15 +39,10 @@ public class BodyPanelController {
     }
 
     public void searchAnimeDatabase() {
-        DatabaseResultPanelController databaseResultPanelController =
-                bodyPanelView.getDatabaseResultPanelView().getDatabaseResultPanelController();
-        String title = bodyPanelView
-                .getUserPanelView()
-                .getSearchPanelView()
-                .getSearchPanelController()
-                .getDatabaseSearchTitle();
+        String title = Controllers.searchPanelController.getDatabaseSearchTitle();
         if (title.equals("Search Anime...")) title = "";
-        databaseResultPanelController.addDataToTable(mySqlConnection.getMyAnimeList(title, mySqlConnectionOffset));
+        Controllers.databaseResultPanelController.addDataToTable(
+                mySqlConnection.getMyAnimeList(title, mySqlConnectionOffset));
     }
 
     public void removeAnime(int removedId) {
