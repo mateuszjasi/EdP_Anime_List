@@ -3,7 +3,7 @@ package org.example.panel.OptionsPanel;
 import static org.example.constants.ApiTableColumns.*;
 import static org.example.constants.Colors.colorLightGray;
 import static org.example.constants.Colors.colorTeal;
-import static org.example.constants.DatabaseTableColumns.progressColumnId;
+import static org.example.constants.DatabaseTableColumns.progressColumnID;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -126,7 +126,7 @@ public class OptionsPanelController {
         if (selectedRow != -1) {
             BodyPanelController bodyPanelController = Controllers.bodyPanelController;
             String[] progressValues = resultTable
-                    .getValueAt(selectedRow, progressColumnId)
+                    .getValueAt(selectedRow, progressColumnID)
                     .toString()
                     .split(" / ");
             int progress = Integer.parseInt(progressValues[0]);

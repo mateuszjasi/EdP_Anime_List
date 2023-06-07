@@ -21,7 +21,6 @@ public class UserPanelController {
         OptionsPanelController optionsPanelController = Controllers.optionsPanelController;
         SearchPanelController searchPanelController = Controllers.searchPanelController;
         String animeTitle = searchPanelController.getApiSearchTitle();
-
         SwingWorker<List<Anime>, Void> worker = new SwingWorker<>() {
             @Override
             protected List<Anime> doInBackground() {

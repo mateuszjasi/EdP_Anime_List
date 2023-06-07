@@ -1,6 +1,6 @@
 package org.example.panel.ResultPanel;
 
-import static org.example.constants.DatabaseTableColumns.noteColumnId;
+import static org.example.constants.DatabaseTableColumns.noteColumnID;
 import static org.example.constants.DatabaseTableColumns.scoreColumnID;
 import static org.example.constants.Resolutions.animeImageHeight;
 import static org.example.constants.Resolutions.animeImageWidth;
@@ -42,7 +42,7 @@ public class DatabaseResultPanelController {
             int selectedColumn = table.getSelectedColumn();
             int selectedRow = table.getSelectedRow();
             if (selectedRow != -1) {
-                if (selectedColumn == noteColumnId) {
+                if (selectedColumn == noteColumnID) {
                     Controllers.bodyPanelController
                             .getMySqlConnection()
                             .updateNote(Integer.parseInt((String) table.getValueAt(selectedRow, 0)), (String)

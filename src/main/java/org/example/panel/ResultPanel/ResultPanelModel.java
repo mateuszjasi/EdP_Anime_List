@@ -10,12 +10,15 @@ import java.util.stream.IntStream;
 import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import lombok.Getter;
+import org.example.model.Controllers;
 import org.example.model.Status;
 import org.example.panel.BodyPanel.BodyPanelView;
-import org.example.render.ImageRenderer;
-import org.example.render.TooltipTableCellRenderer;
+import org.example.render.AddedAnimeRender;
+import org.example.render.AnimeStatusColorRender;
+import org.example.render.ImageColumnRenderer;
 
 @Getter
 public abstract class ResultPanelModel extends JPanel {
@@ -39,6 +42,10 @@ public abstract class ResultPanelModel extends JPanel {
             }
         };
         initScrollResultTablePane();
+        DefaultTableCellRenderer renderer = new AddedAnimeRender(Controllers.bodyPanelController);
+        for (int j = 2; j < resultTable.getColumnCount(); j++) {
+            resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
+        }
         resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(600);
         resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(60);
         resultTable.getColumnModel().getColumn(numEpisodesColumnID).setMinWidth(30);
@@ -49,7 +56,7 @@ public abstract class ResultPanelModel extends JPanel {
         tableModel = new DefaultTableModel(null, databaseTableHeaders) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == scoreColumnID || column == noteColumnId || column == statusColumnID;
+                return column == scoreColumnID || column == noteColumnID || column == statusColumnID;
             }
         };
         DefaultCellEditor statusEditor = new DefaultCellEditor(new JComboBox<>(new String[] {
@@ -64,13 +71,17 @@ public abstract class ResultPanelModel extends JPanel {
                 new JComboBox<>(IntStream.rangeClosed(0, 10).boxed().toArray(Integer[]::new)));
         scoreEditor.addCellEditorListener((CellEditorListener) this);
         initScrollResultTablePane();
+        DefaultTableCellRenderer renderer = new AnimeStatusColorRender();
+        for (int j = 2; j < resultTable.getColumnCount(); j++) {
+            resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
+        }
         resultTable.addFocusListener((FocusListener) this);
         resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(450);
         resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(60);
         resultTable.getColumnModel().getColumn(scoreColumnID).setMinWidth(30);
         resultTable.getColumnModel().getColumn(scoreColumnID).setCellEditor(scoreEditor);
-        resultTable.getColumnModel().getColumn(progressColumnId).setMinWidth(30);
-        resultTable.getColumnModel().getColumn(noteColumnId).setMinWidth(150);
+        resultTable.getColumnModel().getColumn(progressColumnID).setMinWidth(30);
+        resultTable.getColumnModel().getColumn(noteColumnID).setMinWidth(150);
         resultTable.getColumnModel().getColumn(statusColumnID).setCellEditor(statusEditor);
     }
 
@@ -79,11 +90,10 @@ public abstract class ResultPanelModel extends JPanel {
         resultTable.getColumnModel().getColumn(idColumnID).setMinWidth(0);
         resultTable.getColumnModel().getColumn(idColumnID).setMaxWidth(0);
         resultTable.getColumnModel().getColumn(idColumnID).setWidth(0);
-        resultTable.getColumnModel().getColumn(imageColumnID).setCellRenderer(new ImageRenderer());
+        resultTable.getColumnModel().getColumn(imageColumnID).setCellRenderer(new ImageColumnRenderer());
         resultTable.getColumnModel().getColumn(imageColumnID).setMinWidth(animeImageWidth);
         resultTable.getColumnModel().getColumn(imageColumnID).setMaxWidth(animeImageWidth);
         resultTable.getColumnModel().getColumn(imageColumnID).setWidth(animeImageWidth);
-        resultTable.getColumnModel().getColumn(titleColumnID).setCellRenderer(new TooltipTableCellRenderer());
         resultTable.setRowHeight(animeImageHeight);
         resultTable.getTableHeader().setResizingAllowed(false);
         resultTable.getTableHeader().setReorderingAllowed(false);

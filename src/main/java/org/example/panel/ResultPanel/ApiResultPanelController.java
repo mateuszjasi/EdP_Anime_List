@@ -35,11 +35,6 @@ public class ApiResultPanelController {
     public void addDataToTable(List<Anime> animeList) {
         DefaultTableModel tableModel = apiResultPanelView.getTableModel();
         JTable resultTable = apiResultPanelView.getResultTable();
-        // change color of anime row in database - Problem: can't highlight selected row
-        //        DefaultTableCellRenderer renderer = new AddedAnimeRender(optionsPanelController);
-        //        for (int j = 2; j < resultTable.getColumnCount(); j++) {
-        //            resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
-        //        }
         tableModel.setRowCount(0);
         for (int i = 0; i < animeList.size(); i++) {
             Anime anime = animeList.get(i);

@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class ImageRenderer extends DefaultTableCellRenderer {
+public class ImageColumnRenderer extends DefaultTableCellRenderer {
     JLabel label = new JLabel();
 
     @Override
