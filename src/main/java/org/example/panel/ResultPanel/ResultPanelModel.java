@@ -76,12 +76,12 @@ public abstract class ResultPanelModel extends JPanel {
             resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
         }
         resultTable.addFocusListener((FocusListener) this);
-        resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(450);
-        resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(60);
-        resultTable.getColumnModel().getColumn(scoreColumnID).setMinWidth(30);
+        resultTable.getColumnModel().getColumn(titleColumnID).setMinWidth(500);
+        resultTable.getColumnModel().getColumn(statusColumnID).setMinWidth(140);
+        resultTable.getColumnModel().getColumn(scoreColumnID).setMinWidth(40);
         resultTable.getColumnModel().getColumn(scoreColumnID).setCellEditor(scoreEditor);
-        resultTable.getColumnModel().getColumn(progressColumnID).setMinWidth(30);
-        resultTable.getColumnModel().getColumn(noteColumnID).setMinWidth(150);
+        resultTable.getColumnModel().getColumn(progressColumnID).setMinWidth(100);
+        resultTable.getColumnModel().getColumn(noteColumnID).setMinWidth(200);
         resultTable.getColumnModel().getColumn(statusColumnID).setCellEditor(statusEditor);
     }
 

@@ -1,7 +1,7 @@
 package org.example.render;
 
 import static org.example.constants.Colors.*;
-import static org.example.constants.DatabaseTableColumns.statusColumnID;
+import static org.example.constants.DatabaseTableColumns.*;
 
 import java.awt.*;
 import javax.swing.*;
@@ -21,6 +21,9 @@ public class DatabaseTableRender extends DefaultTableCellRenderer {
         else if (status == Status.dropped) component.setBackground(colorDropped);
         else if (status == Status.plan_to_watch) component.setBackground(colorPlanToWatch);
         else component.setBackground(colorCompleted);
+        if (column == titleColumnID) setFont(getFont().deriveFont(Font.BOLD, 30));
+        else if (column == scoreColumnID) setFont(getFont().deriveFont(Font.BOLD, 25));
+        else setFont(getFont().deriveFont(Font.PLAIN, 20));
         if (table.getColumnModel().getColumn(column).getWidth()
                 < getPreferredSize().getWidth()) setToolTipText(value.toString());
         else setToolTipText(null);

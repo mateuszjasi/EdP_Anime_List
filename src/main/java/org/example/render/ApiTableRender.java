@@ -1,6 +1,6 @@
 package org.example.render;
 
-import static org.example.constants.ApiTableColumns.idColumnID;
+import static org.example.constants.ApiTableColumns.*;
 import static org.example.constants.Colors.*;
 
 import java.awt.*;
@@ -22,6 +22,9 @@ public class ApiTableRender extends DefaultTableCellRenderer {
         if (isSelected) component.setBackground(table.getSelectionBackground());
         else if (bodyPanelController.getMyAnimeListIds().contains(id)) component.setBackground(colorLightGray);
         else component.setBackground(table.getBackground());
+        if (column == titleColumnID) setFont(getFont().deriveFont(Font.BOLD, 30));
+        else if (column == meanColumnID) setFont(getFont().deriveFont(Font.BOLD, 25));
+        else setFont(getFont().deriveFont(Font.PLAIN, 20));
         if (table.getColumnModel().getColumn(column).getWidth()
                 < getPreferredSize().getWidth()) setToolTipText(value.toString());
         else setToolTipText(null);
