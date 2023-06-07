@@ -16,8 +16,8 @@ import lombok.Getter;
 import org.example.model.Controllers;
 import org.example.model.Status;
 import org.example.panel.BodyPanel.BodyPanelView;
-import org.example.render.AddedAnimeRender;
-import org.example.render.AnimeStatusColorRender;
+import org.example.render.ApiTableRender;
+import org.example.render.DatabaseTableRender;
 import org.example.render.ImageColumnRenderer;
 
 @Getter
@@ -42,7 +42,7 @@ public abstract class ResultPanelModel extends JPanel {
             }
         };
         initScrollResultTablePane();
-        DefaultTableCellRenderer renderer = new AddedAnimeRender(Controllers.bodyPanelController);
+        DefaultTableCellRenderer renderer = new ApiTableRender(Controllers.bodyPanelController);
         for (int j = 2; j < resultTable.getColumnCount(); j++) {
             resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
         }
@@ -71,7 +71,7 @@ public abstract class ResultPanelModel extends JPanel {
                 new JComboBox<>(IntStream.rangeClosed(0, 10).boxed().toArray(Integer[]::new)));
         scoreEditor.addCellEditorListener((CellEditorListener) this);
         initScrollResultTablePane();
-        DefaultTableCellRenderer renderer = new AnimeStatusColorRender();
+        DefaultTableCellRenderer renderer = new DatabaseTableRender();
         for (int j = 2; j < resultTable.getColumnCount(); j++) {
             resultTable.getColumnModel().getColumn(j).setCellRenderer(renderer);
         }

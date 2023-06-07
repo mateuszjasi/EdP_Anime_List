@@ -22,8 +22,7 @@ import org.example.panel.UserPanel.UserPanelController;
 @RequiredArgsConstructor
 public class OptionsPanelController {
     private final OptionsPanelView optionsPanelView;
-    private boolean searching;
-    private boolean nextButtonStatus;
+    private boolean searching, nextButtonStatus;
 
     public void buttonClicked(ActionEvent e) {
         if (e.getSource() == optionsPanelView.getNextPageButton()
@@ -103,19 +102,21 @@ public class OptionsPanelController {
         JButton changeProgressButton = optionsPanelView.getChangeProgressButton();
         JButton removeFromListButton = optionsPanelView.getRemoveFromListButton();
         JButton nextPageButton = optionsPanelView.getNextPageButton();
+        JButton previousPageButton = optionsPanelView.getPreviousPageButton();
         if (bodyPanelController.isDataFromApiMode()) {
             optionsPanelView.remove(addToWatchingButton);
             optionsPanelView.remove(addToPlanToWatchButton);
             optionsPanelView.add(changeProgressButton, 1);
             optionsPanelView.add(removeFromListButton, 2);
             nextButtonStatus = nextPageButton.isEnabled();
+            previousPageButton.setEnabled(Controllers.bodyPanelController.getMySqlConnectionOffset() > 0);
         } else {
             optionsPanelView.remove(changeProgressButton);
             optionsPanelView.remove(removeFromListButton);
             optionsPanelView.add(addToWatchingButton, 1);
             optionsPanelView.add(addToPlanToWatchButton, 2);
             nextPageButton.setEnabled(nextButtonStatus);
-            optionsPanelView.getPreviousPageButton().setEnabled(Controllers.userPanelController.getOffset() > 0);
+            previousPageButton.setEnabled(Controllers.userPanelController.getOffset() > 0);
         }
         bodyPanelController.changeMode();
     }
@@ -155,6 +156,10 @@ public class OptionsPanelController {
 
     public void enableNextPageButton(boolean enable) {
         optionsPanelView.getNextPageButton().setEnabled(enable);
+    }
+
+    public void enablePreviousPageButton(boolean enable) {
+        optionsPanelView.getPreviousPageButton().setEnabled(enable);
     }
 
     public void setButtonsColor(ChangeEvent e) {

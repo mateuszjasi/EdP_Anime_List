@@ -49,6 +49,7 @@ public class BodyPanelController {
                 && !mySqlConnection
                         .getMyAnimeList(title, mySqlConnectionOffset + 10, 1)
                         .isEmpty());
+        optionsPanelController.enablePreviousPageButton(mySqlConnectionOffset > 0);
         Controllers.databaseResultPanelController.addDataToTable(animeList);
     }
 
