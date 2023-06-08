@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Fixed buttons (again)">
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added config.properties, fixes">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ResultPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ResultPanelModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/render/ApiTableRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/render/ApiTableRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/render/DatabaseTableRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/render/DatabaseTableRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Anime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Anime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/MyAnime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MyAnime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/AnimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MySqlConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +76,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="UML Use Case" />
+        <option value="UML Object" />
         <option value="Class" />
       </list>
     </option>
@@ -91,30 +96,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/java/org/example/graphic&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Object",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "E:/OH NO HE IS HOT/Event-driven programming/EdP_Anime_List/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\resources" />
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example\graphic" />
       <recent name="E:\OH NO HE IS HOT\Event-driven programming\EdP_Anime_List\src\main\java\org\example" />
     </key>
@@ -280,7 +287,9 @@
       <workItem from="1686066779319" duration="196000" />
       <workItem from="1686156471997" duration="3353000" />
       <workItem from="1686167615896" duration="231000" />
-      <workItem from="1686168989268" duration="3805000" />
+      <workItem from="1686168989268" duration="4002000" />
+      <workItem from="1686243072167" duration="2714000" />
+      <workItem from="1686246624676" duration="8474000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -436,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686171422961</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Formatted table text">
+      <created>1686172989530</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686172989530</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +491,9 @@
     <MESSAGE value="Fixed: next page button was enabled when next page was empty" />
     <MESSAGE value="Added tooltip, colors to table rows" />
     <MESSAGE value="Fixed buttons (again)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed buttons (again)" />
+    <MESSAGE value="Formatted table text" />
+    <MESSAGE value="Added config.properties, fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added config.properties, fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

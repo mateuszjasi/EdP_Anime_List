@@ -3,6 +3,7 @@ package org.example.service;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import lombok.SneakyThrows;
 import org.example.model.MyAnime;
 import org.example.model.Status;
@@ -12,9 +13,11 @@ public class MySqlConnection {
 
     @SneakyThrows
     public MySqlConnection() {
-        String URL = "jdbc:mysql://localhost:3306/myanimelist";
-        String USERNAME = "root";
-        String PASSWORD = "root";
+        Properties properties = new Properties();
+        properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
+        String URL = properties.getProperty("DATABASE_URL");
+        String USERNAME = properties.getProperty("USERNAME");
+        String PASSWORD = properties.getProperty("PASSWORD");
         connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 

@@ -10,23 +10,30 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.example.model.Anime;
 import org.example.model.Controllers;
 import org.example.model.Status;
 
-@RequiredArgsConstructor
 public class AnimeService {
-    private final String URL = "https://api.myanimelist.net/v2/anime";
+    private final HttpClient httpClient;
+    private final String URL, KEY, VALUE;
+
+    @SneakyThrows
+    public AnimeService() {
+        httpClient = HttpClient.newHttpClient();
+        Properties properties = new Properties();
+        properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
+        URL = properties.getProperty("API_URL");
+        VALUE = properties.getProperty("VALUE");
+        KEY = properties.getProperty("KEY");
+    }
 
     @SneakyThrows
     public HttpResponse<String> getResponse(String url) {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        String VALUE = "dc7b2de23341fdd30dbea0949bf6c5e1";
-        String KEY = "X-MAL-CLIENT-ID";
         HttpRequest request =
                 HttpRequest.newBuilder().header(KEY, VALUE).uri(new URI(url)).build();
         return httpClient.send(request, HttpResponse.BodyHandlers.ofString());

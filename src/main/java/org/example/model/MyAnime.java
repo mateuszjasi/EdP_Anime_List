@@ -1,17 +1,15 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+@NoArgsConstructor
 @AllArgsConstructor
-public class MyAnime {
-    private Integer id;
-    private String imageUrl;
-    private String title;
-    private Status status;
+public class MyAnime extends Anime {
     private Integer score;
     private Integer progress;
     private Integer progressMax;
