@@ -14,7 +14,7 @@ import lombok.Getter;
 import org.example.panel.UserPanel.UserPanelView;
 
 @Getter
-public abstract class OptionsPanelModel extends JPanel {
+public abstract class OptionsPanelModel extends JPanel implements ActionListener, ChangeListener {
     protected UserPanelView userPanelView;
     protected OptionsPanelController optionsPanelController;
     protected JButton nextPageButton,
@@ -37,9 +37,9 @@ public abstract class OptionsPanelModel extends JPanel {
         button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         button.setIcon(new ImageIcon(graphicPath));
         button.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, colorLightGray));
-        button.addActionListener((ActionListener) this);
+        button.addActionListener(this);
         button.setFocusable(false);
-        button.addChangeListener((ChangeListener) this);
+        button.addChangeListener(this);
         if (!Objects.equals(graphicPath, myListIconPath)) {
             button.setEnabled(false);
         }

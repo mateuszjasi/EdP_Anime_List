@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Added config.properties, fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ApiResultPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/DatabaseResultPanelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ResultPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/ResultPanel/ResultPanelModel.java" afterDir="false" />
+    <list default="true" id="234b5a70-0aa7-4267-b152-306794b2912b" name="Changes" comment="Fixes, UML">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/OptionsPanel/OptionsPanelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/panel/SearchPanel/SearchPanelView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <recent name="org.example.AnimeSearchWindow" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EdP_Anime_List [spotlessApply]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="JTableExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JTableExamples" />
       <module name="EdP_Anime_List.main" />
@@ -286,7 +286,7 @@
       <workItem from="1686167615896" duration="231000" />
       <workItem from="1686168989268" duration="4002000" />
       <workItem from="1686243072167" duration="2714000" />
-      <workItem from="1686246624676" duration="12481000" />
+      <workItem from="1686246624676" duration="12618000" />
     </task>
     <task id="LOCAL-00001" summary="Adding API in progress">
       <created>1684106084554</created>
@@ -456,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686255128307</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixes, UML">
+      <created>1686262832760</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686262832760</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +504,8 @@
     <MESSAGE value="Fixed buttons (again)" />
     <MESSAGE value="Formatted table text" />
     <MESSAGE value="Added config.properties, fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added config.properties, fixes" />
+    <MESSAGE value="Fixes, UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes, UML" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

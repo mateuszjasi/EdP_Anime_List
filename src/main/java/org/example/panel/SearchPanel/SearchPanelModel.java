@@ -16,7 +16,7 @@ import lombok.Getter;
 import org.example.panel.UserPanel.UserPanelView;
 
 @Getter
-public abstract class SearchPanelModel extends JPanel {
+public abstract class SearchPanelModel extends JPanel implements ActionListener, FocusListener {
     protected UserPanelView userPanelView;
     protected SearchPanelController searchPanelController;
     protected JTextField searchAnimeTextField;
@@ -45,8 +45,8 @@ public abstract class SearchPanelModel extends JPanel {
         textField.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 0, colorLightGray));
         textField.setFont(searchFieldFont);
         textField.setForeground(colorLightGray);
-        textField.addFocusListener((FocusListener) this);
-        textField.addActionListener((ActionListener) this);
+        textField.addFocusListener(this);
+        textField.addActionListener(this);
         return textField;
     }
 
@@ -56,7 +56,7 @@ public abstract class SearchPanelModel extends JPanel {
         button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         button.setIcon(new ImageIcon(searchIconPath));
         button.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, colorLightGray));
-        button.addActionListener((ActionListener) this);
+        button.addActionListener(this);
         button.setFocusable(false);
         return button;
     }

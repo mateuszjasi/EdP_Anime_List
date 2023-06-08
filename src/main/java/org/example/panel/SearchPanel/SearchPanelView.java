@@ -1,14 +1,12 @@
 package org.example.panel.SearchPanel;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import org.example.model.Controllers;
 import org.example.model.Views;
 import org.example.panel.UserPanel.UserPanelView;
 
-public class SearchPanelView extends SearchPanelModel implements ActionListener, FocusListener {
+public class SearchPanelView extends SearchPanelModel {
     public SearchPanelView(UserPanelView userPanel) {
         this.userPanelView = userPanel;
         searchPanelController = new SearchPanelController(this);

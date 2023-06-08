@@ -3,14 +3,12 @@ package org.example.panel.OptionsPanel;
 import static org.example.constants.Strings.*;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import org.example.model.Controllers;
 import org.example.model.Views;
 import org.example.panel.UserPanel.UserPanelView;
 
-public class OptionsPanelView extends OptionsPanelModel implements ActionListener, ChangeListener {
+public class OptionsPanelView extends OptionsPanelModel {
     public OptionsPanelView(UserPanelView userPanel) {
         this.userPanelView = userPanel;
         optionsPanelController = new OptionsPanelController(this);
