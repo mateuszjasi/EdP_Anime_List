@@ -8,8 +8,7 @@ import org.example.model.Controllers;
 import org.example.model.Views;
 import org.example.panel.BodyPanel.BodyPanelView;
 
-public class DatabaseResultPanelView extends ResultPanelModel
-        implements ListSelectionListener, FocusListener, CellEditorListener {
+public class DatabaseResultPanelView extends ResultPanelModel implements FocusListener, CellEditorListener {
     public DatabaseResultPanelView(BodyPanelView bodyPanel) {
         this.bodyPanelView = bodyPanel;
         this.databaseResultPanelController = new DatabaseResultPanelController(this);

@@ -1,0 +1,44 @@
+@startuml
+class ApiResultPanelController {
+- ApiResultPanelView apiResultPanelView
++ void rowSelected()
++ void addDataToTable(List<Anime>)
+}
+abstract class ResultPanelModel {
+# ApiResultPanelController apiResultPanelController
+# DatabaseResultPanelController databaseResultPanelController
+# DefaultTableModel tableModel
+# JTable resultTable
+# JScrollPane scrollResultTablePane
+# BodyPanelView bodyPanelView
+# void initResultPanel()
+# void initScrollApiResultTablePane()
+# void initScrollDatabaseResultTablePane()
+- void initScrollResultTablePane()
+}
+class DatabaseResultPanelController {
+- DatabaseResultPanelView databaseResultPanelView
++ void rowSelected()
++ void noteChanged(FocusEvent)
++ void addDataToTable(List<MyAnime>)
++ void listColumnChanged()
+}
+class ApiResultPanelView {
++ void valueChanged(ListSelectionEvent)
+}
+class DatabaseResultPanelView {
++ void valueChanged(ListSelectionEvent)
++ void focusGained(FocusEvent)
++ void focusLost(FocusEvent)
++ void editingStopped(ChangeEvent)
++ void editingCanceled(ChangeEvent)
+}
+
+
+ListSelectionListener <|.. ResultPanelModel
+JPanel <|-- ResultPanelModel
+ResultPanelModel <|-- ApiResultPanelView
+FocusListener <|.. DatabaseResultPanelView
+CellEditorListener <|.. DatabaseResultPanelView
+ResultPanelModel <|-- DatabaseResultPanelView
+@enduml

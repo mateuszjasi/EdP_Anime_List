@@ -1,0 +1,51 @@
+@startuml
+class Views {
++ {static} BodyPanelView bodyPanelView
++ {static} OptionsPanelView optionsPanelView
++ {static} ApiResultPanelView apiResultPanelView
++ {static} DatabaseResultPanelView databaseResultPanelView
++ {static} SearchPanelView searchPanelView
++ {static} TitlePanelView titlePanelView
++ {static} UserPanelView userPanelView
+}
+enum Status {
++  finished_airing
++  currently_airing
++  not_yet_aired
++  plan_to_watch
++  watching
++  on_hold
++  completed
++  dropped
+- String string
++ String getString()
++ {static} Status fromString(String)
+}
+class Controllers {
++ {static} BodyPanelController bodyPanelController
++ {static} OptionsPanelController optionsPanelController
++ {static} ApiResultPanelController apiResultPanelController
++ {static} DatabaseResultPanelController databaseResultPanelController
++ {static} SearchPanelController searchPanelController
++ {static} UserPanelController userPanelController
+}
+class Anime {
+- Integer id
+- String imageUrl
+- String title
+- Status status
+- String numEpisodes
+- String mean
+}
+class MyAnime {
+- Integer score
+- Integer progress
+- Integer progressMax
+- String note
+- String added
+- String finished
+}
+
+
+Anime <|-- MyAnime
+@enduml

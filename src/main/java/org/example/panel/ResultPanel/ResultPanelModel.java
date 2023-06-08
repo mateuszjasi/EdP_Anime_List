@@ -21,7 +21,7 @@ import org.example.render.DatabaseTableRender;
 import org.example.render.ImageColumnRenderer;
 
 @Getter
-public abstract class ResultPanelModel extends JPanel {
+public abstract class ResultPanelModel extends JPanel implements ListSelectionListener {
     protected ApiResultPanelController apiResultPanelController;
     protected DatabaseResultPanelController databaseResultPanelController;
     protected DefaultTableModel tableModel;
@@ -100,7 +100,7 @@ public abstract class ResultPanelModel extends JPanel {
         resultTable.setRowSelectionAllowed(true);
         resultTable.setColumnSelectionAllowed(false);
         resultTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        resultTable.getSelectionModel().addListSelectionListener((ListSelectionListener) this);
+        resultTable.getSelectionModel().addListSelectionListener(this);
         scrollResultTablePane = new JScrollPane(resultTable);
     }
 }
