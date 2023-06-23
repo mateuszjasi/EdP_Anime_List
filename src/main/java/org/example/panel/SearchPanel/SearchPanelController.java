@@ -43,7 +43,7 @@ public class SearchPanelController {
         JProgressBar progressBar = searchPanelView.getSearchProgressBar();
         JTextField searchAnimeTextField = searchPanelView.getSearchAnimeTextField();
         progressBar.setValue(0);
-        progressBar.setString("Looking for: " + searchAnimeTextField.getText());
+        progressBar.setString("Looking for: " + apiSearchTitle);
         progressBar.setStringPainted(true);
         searchPanelView.remove(searchAnimeTextField);
         searchPanelView.add(progressBar, 0);
